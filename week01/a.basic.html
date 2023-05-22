@@ -1,0 +1,84 @@
+<!-- 
+    1. Using the Browser Console window!!!
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Introduction</title>
+    <!-- Internal CSS: -->
+    <style>
+
+    </style>
+
+    <!-- internal JS: inside the head -->
+    <script>
+        // my JS code
+        alert('from the head');
+    </script>
+</head>
+
+<body>
+    <!-- place all you HTML contents -->
+    <h1>Learning about JavaScript</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia commodi voluptates delectus repudiandae
+        incidunt, laborum in earum, dolor itaque nihil cupiditate? Nihil in deserunt sequi culpa modi ea eveniet
+        inventore.</p>
+    <!-- 
+        at the end after all your HTML contents
+        internal JS: inside the body 
+    -->
+    <script>
+        // my JS code
+        /*
+            In JS, we can see we have alert() or console.log()
+            anyName() => It's a function (method) because it has "(" and ")"
+            example:
+            alert() => function/method
+            alert is built-in function or built-in method
+       */
+        alert('from the body');
+
+        /*
+        Everything in JS is an object:
+        The "console" object provides access to the browser's debugging console
+        
+        has different methods:
+        - log()
+        - error()
+        - warn()
+
+        console for us as programmers :-)
+        for simple user => they need to see the output on the page itself
+        */
+        console.log('Here is the first text in the console window!');
+        console.log('Here is the second text in the console window!');
+        console.log('Here is the third text in the console window!');
+        console.info('information');
+        console.error('error');
+        console.warn('warning');
+
+        // in PHP, we use echo or print :-)
+        // In JS: document.write()
+        document.write("<p>Here is my last paragraph!</p>")
+
+        document.write("<h3>JavaScript</h3>");
+
+    </script>
+
+    <!-- External JS File: -->
+    <script src="script.js"></script>
+</body>
+
+<!-- 
+    Error: Stray start tag script.
+ -->
+<script>
+    alert('outside the body, it\'s wrong :-(');
+    alert("Don't use this way!");
+</script>
+
+</html>

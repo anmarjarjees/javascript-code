@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        Arrays: variable that holds multiple values
+        - Arrays can have multiple values
+        - Each element (value) inside the array has a unique index (like StudentID for student)
+        which the address to access that specific value
+        - Arrays in JavaScript like many other languages are 0 based index,
+        so the first element/item in the array has the index of 0
+        - in the above example:
+        the value/element 10 has the index of 2
+
+           new Name() => Constructor
+           
+           new Array() => Constructing an array
+       */
+
+        // declare a new array and initialize it with 5 numeric values:
+        let numbers = new Array(1, 2, 3, 4, 5);
+        console.log(numbers);
+
+        // Or
+        let fruits = ['apples', 'oranges', 'pears'];
+
+        // in JS, different data types as in PHP:
+        let mixed = ['Testing', true, 12, 7.5];
+
+        /*
+        JS is not statically typed language:
+
+        so we do not use => const name:string;
+
+        in "TypeScript" which is a superset of JavaScript
+        it's JS with some added features
+        so it has the static typing feature: look at "TypeScript"
+        */
+
+        // arrays are 0 based in any language
+        console.log(fruits);
+
+        // oranges
+        console.log(fruits[1]); // index 1 ==> the second element
+
+        // adding a new element: index 3 is not exist:
+        fruits[3] = 'grapes';
+        console.log(fruits);
+
+        // not good to use [3] as we might override a value!
+        // using push() instead => adding in the end
+        fruits.push('bananas');
+        console.log(fruits);
+
+        // using unshift() => adding in the beginning of the array
+        fruits.unshift('strawberries');
+        console.log(fruits);
+
+        // pop() method for taking the last one
+        fruits.pop();
+        console.log(fruits);
+
+        // getting the index of a certain value/element:
+        console.log(fruits.indexOf('oranges')); // 2
+
+        // check if something is an array:
+        console.log(Array.isArray(fruits)); // true
+        subjects = "JS, PHP, Java, and C#";
+        console.log(Array.isArray(subjects)); // false
+
+    // More example: (working as Front-End Developer)
+    let myFavSubjects = ["HTML", "CSS", "JavaScript"];
+
+    // for testing: output the CSS subject of the array:
+    console.log(myFavSubjects[1]) // CSS
+
+    // Task Output:
+    // "We should start by learning {HTML} then {CSS} before learning {JavaScript}"
+    // use console.log() and we need to access these subjects by calling the array myFavSubjects
+    // writing the console using the array structure:
+    // the first element (index:0) of my myFavSubjects is "HTML"
+    // the second element (index:1) of my myFavSubjects is "CSS"
+    // the third element (index:3) of my myFavSubjects is "JavaScript"
+    console.log("We should start by learning " + myFavSubjects[0] + " then " + myFavSubjects[1] + " before learning " + myFavSubjects[2]);
+
+
+    </script>
+</body>
+
+</html>

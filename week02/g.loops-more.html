@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+        /*
+        Problem:
+        - Type the only even numbers: 0 to 10 => 0 2 4 6 8 10 using for loop
+        - Type them 10 times => using for loop
+        in other word, I want to repeat the main loop for printing 0 to 10 => 10 times
+        */
+
+        // Nested Loops:
+        for (let i = 1; i <= 10; i++) {
+            for (let j = 0; j <= 10; j += 2) {
+                document.write(j);
+            }
+            document.write("<br>");
+        }
+
+        /* 
+        Loop to print the items of this 2-Dim array:
+        */
+        let officeApps = [
+            ["Word", "2 Weeks", "2 Assignments"],
+            ["PowerPoint", "1 Week", "1 Assignment"],
+            ["Excel", "2 Weeks", "1 Assignment"]
+        ];
+
+
+        document.write("<ul>");
+        for (let i = 0; i < 3; i++) {
+            document.write("<li>"+officeApps[i]+"</li>");
+        }
+        document.write("</ul>");
+
+        document.write("<ul>");
+        for (let i = 0; i < 3; i++) {
+            document.write("<li>");
+            for (let j = 0; j < 3; j++) {
+                document.write(officeApps[i][j]);
+                if (j!=2) {
+                    document.write(", ");
+                }
+            }
+            document.write("</li>");
+        }
+        document.write("</ul>");
+
+    </script>
+</body>
+</html>

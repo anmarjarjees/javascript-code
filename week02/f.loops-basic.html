@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+</head>
+<body>
+    <script>        
+        // Exercise: using for loop to output/print 1 to 10:
+        // creating one variable named "loopCounter" as a "global" variable to be used in both loops:
+        let loopCounter;
+        // Part1: loopCounter = 1 => the initial is 1 for the loop counter variable "loopCounter"
+        // Part2: loopCounter <= 10 => keep looping while the loopCounter is less than/equal to 10
+        // Part3: loopCounter++ => to increment the loopCounter by 1 in each iteration
+        for (loopCounter = 1; loopCounter <= 10; loopCounter++) {
+            // the for loop code goes here
+            // This code/message will be printed 10 times!
+            document.write(loopCounter + "<br>");
+        }
+
+        // To print 10 to 1 (Descending)
+        for (loopCounter = 10; loopCounter >= 1; loopCounter--) {
+            // the for loop code goes here
+            // This code/message will be printed 10 times!
+            /*
+          the first time => loopCounter = 10
+          after loopCounter--
+          the second time => loopCounter = 9
+          after loopCounter--
+          the third time => loopCounter = 8
+          and so on till we reach the 10th time
+            */
+            document.write(loopCounter + "<br>");
+        }
+
+        // Simple for loop: 0 to 10
+        // Notice that i has a local scope => declared within the for loop structure
+        for (let i = 0; i < 11; i++) {
+            console.log(i);
+        }
+
+        // while
+        // Notice that i has a global scope => declared within the for loop structure
+        let i = 0;
+        while (i < 11) {
+            console.log(i);
+            i++;
+        }
+
+        // do while
+        // we need to reset the value of the global variable i to 0 again:
+        i = 0;
+        do {
+            console.log(i);
+            i++;
+        } while (i < 11)
+
+        /* 
+        break and continue
+        */
+        for (let i = 0; i < 10; i++) {
+            /*
+            if (i=3) => always true
+
+            stop the iteration when i became 3
+            */
+            if (i == 3) {
+                // By using the break keyword
+                break;
+            }
+            document.write("i: " + i + "<br>"); // 0 1 2 
+        }
+
+        document.write("<hr>");
+        for (let i = 0; i < 10; i++) {
+            /*
+            if (i=3) => always true
+
+            omit the iteration code when i became 3
+            */
+            if (i == 3) {
+                // By using the continue keyword
+                continue; // just jump to the next iteration and ignore the current one
+            }
+            document.write("i: " + i + "<br>"); // 0 1 2 4 5 6 7 8 9
+        }
+    </script>
+</body>
+</html>

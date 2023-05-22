@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Object Literals: Basically key value pairs
+        */
+        let person = {
+            // properties (fields)
+            firstName: "John",
+            lastName: "Doe",
+            age: 48,
+            jobTitle: "Teacher",
+            courses: ["Java", "JavaScript", "PHP"],
+            // method
+            getInfo: function () {
+                document.write("<h2>Full Info</h2>");
+                /*
+               To access any object property => object.propertyName
+
+               Yes, we can use for example: person.firstName (Not recommended)
+               
+               To access any object member (properties/methods) within this object itself
+               we need to use a JS keyword "this" (it's better than using the object name itself)
+               so the keyword "this" is used when we want to refer to information within the object
+               */
+                document.write("Full Name: " + this.firstName);
+            }
+        } // person
+
+
+        document.write(`<br>Full Name: ${person.firstName} ${person.lastName}`);
+        document.write("<br>Full Name: " + person.firstName + " " + person.lastName);
+        document.write("<br>The second course is: " + person.courses[1]);
+
+        person.getInfo();
+
+        // Another Example:
+        let country = {
+            name: "Canada",  // string value
+            capital: "Ottawa", // numeric value
+            sea: true, // boolean value
+            population: 38131104,
+            language: "English",
+            provinces: ["ON", "QC", "NS", "NB", "MB", "BC", "PE", "SK", "AB", "NL"],
+            territories: ["NT", "YT", "NU"],
+            // To know more about our country Canada: https://en.wikipedia.org/wiki/Provinces_and_territories_of_Canada
+            //adding a method for this object named "bio":
+            bio: function () {
+                console.log(this.name + " is a country with " + this.population + " people");
+                console.log("We are studying in Toronto Campus, Toronto is part of " + this.provinces[0]);
+            }
+        } // country
+
+        let employee = {
+            // properties (fields)
+            firstName: "Alex",
+            lastName: "White",
+            age: 50,
+            jobTitle: "Teacher",
+            courses: ["ASP.NET", "Python", "PHP"],
+            address: {
+                street: "123 Yonge Street",
+                city: "Toronto",
+                province: "ON",
+                code: "Q2W 3W4"
+            },
+            // method
+            getInfo: function () {
+                document.write("<h2>Employee Info</h2>");
+                document.write("<ul>");
+                document.write(`<li>Full Name: ${this.firstName} ${this.lastName}</li>`);
+                document.write(`<li>Job Title: ${this.jobTitle}</li>`);
+                document.write("</ul>");
+            }
+        }
+
+        employee.getInfo();
+        // Task: Alex White lives in Toronto
+        document.write(`<br>${employee.firstName} ${employee.lastName} lives in ${employee.address.city}`);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let exam1 = prompt("Enter your first exam");
+        exam1 = parseFloat(exam1);
+        // or in one line we can combine the two functions: parseFloat() and prompt() => nesting functions:
+        let exam2 = parseFloat(prompt("Enter your second exam"));
+
+        // Task#1: find the average:
+        let average = (exam1 + exam2) / 2;
+
+        /* 
+        with if condition we can use the following operator symbols:
+           Comparison Operators:
+           == equal to (notice it's either == or === but NOT =)
+           === exactly equal to (with type and value)! We will cover it later
+           != not equal to
+           > greater than
+           < less than
+           >= greater than or equal to
+           <= less than or equal to
+        */
+
+        // we need to check if the average value is greater than or equal to 60
+        if (average >= 60) {
+            // the code in between the { and } belongs to if condition
+            // this code will be ONLY executed or run when the condition is true
+            // which means it will run only when the average is greater/or equal to 60
+            document.write("<p>Your average is: " + average + ", good Job, you passed!</p>");
+
+            // so if the condition is false,
+            // JS will ignore all the code inside this "if block"
+            // and just jump to the next line of code after the "if condition"
+        } else {
+            // The else block will ONLY be executed when the first part of if condition is false
+            document.write("<p>Don't worry, you still have another chance</p>");
+        }
+
+        // we can combine two or more variables with single var/let keyword using commas
+        let num1, num2;
+
+        // then we can assign a value to each one:
+        num1 = "10"; // string data type value (it has double quotes to make it string)
+        num2 = 10; // numeric data type value (no quote)
+
+        if (num1 == num2) {
+            // if 10=="10" => true because they have the same value of 10
+            // == is for comparing the values of each num1 and num2
+            alert("Both are equal as values but NOT as data type!");
+        }
+
+        // repeat the same if but with using ===
+        // to check if they have the same value and the same data type
+        if (num1 === num2) {
+            // if 10 === "10" ==> false because they have the same value of 10 but NOT the same data type!
+            // === is for comparing the values and the data type of num1 and num2
+            alert("Both are equal as values AND data type");
+        } else {
+            // remember that else block will run only when the condition is false
+            alert("They are not exactly equal");
+        }
+
+        // Very Important Note: Common logical mistake is to use one equal sign "=" !
+        let x, y;
+        x = "abc"; // string
+        y = 100; // number
+
+        // be aware that = is the assignment operator while == the comparison operator
+        // There is no one = either == or ===
+        // NOTE: The condition below is wrong! we have to use either == or ===
+        // although it's is a mistake, but we will leave it for learning purpose
+        if (x = y) { // this condition will always be true!
+            // this message will only appear if the condition is true
+            console.log("Both x and y are equal (both have the same value)!");
+        }
+
+        /*************** More Examples ***************/
+        var value1 = prompt("Please enter your first numeric value:");
+        // Review:
+        // since prompt method returns a string
+        // we need to convert the input value into a number
+        // to do that we can use:
+        // parseInt() or parseFloat()
+        value1 = parseFloat(value1);
+
+        // or using this way by nesting two functions (methods) together
+        var value2 = parseFloat(prompt("Please enter your second numeric value:"));
+
+        if (value1 > value2) {
+            console.log("The maximum value is your first one: " + value1);
+        } else if (value1 < value2) {
+            console.log("The maximum value is your second one: " + value2);
+        }
+        else {
+            console.log("Both values are equal");
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+       Our new function to learn is prompt():
+       **************************************
+       In this file we will use a new function named prompt() to help us getting data from the user
+       We learnt how to output/print the data using alert() and console.log()
+
+       for example, this prompt function can accept two parameters:
+         - prompt("The text to be displayed", default value);
+         - notice that default value is "optional" which means we can write (put) it or just ignore it
+
+         prompt("Text that we want to display", default value)
+    */
+
+        let clientName = prompt("Hi there! What's your name please?");
+        console.log("Your full name is: " + clientName);
+        // Or:
+        /* 
+        document.write() is like echo() in PHP :-)
+        */
+        document.write("Your full name is: " + clientName);
+        
+        console.log(typeof (clientName));
+
+        /* 
+        Anything in JS is an object
+        */
+        console.log("You name has "+clientName.length+" characters");
+
+
+        let clientAge = prompt("Hi " + clientName + "! How old are you please?");
+        console.log(typeof (clientAge));
+
+        // Below: if the user didn't put any value for the first/second exam, the default value will be 0
+        let exam1 = prompt("Enter the value of your first exam:", 0); // 10 as a number => prompt will return "10"
+        let exam2 = prompt("Enter the value of your second exam:", 0); // 8 as a number => prompt will return "8"
+
+           // Because the two values are returned from the prompt() function as string
+        // So JS will use the + for concatenating these two string variables
+        var total = exam1 + exam2; // "10" + "8" = "108"
+        console.log("The total of exam1 and exam2 is: " + total);
+
+        /* 
+        in Python :-)
+        age = int(input("Enter your age"))
+        average = float(input("Enter your average"))
+
+        In JS:
+        parseInt() => can accept whole and ignore the decimal if any
+        parseFloat() => can accept both whole (int) and decimal (float)
+        We have two built-in JS functions to explicitly convert (text value) to (numeric value)
+
+        - parseFloat() ==> to deal with integer (Whole) or float (decimal) numbers
+        example: 89.75 or even 89
+
+        - parseInt() ==> to deal only with integer(Whole) value only
+          int is short for integer
+          example: 89 ==> it has to be an integer value (no decimal point)
+
+        Note:
+        parseFloat works with the both types of numbers: integers and decimals
+        parseInt can work only with whole number and it will ignore the decimals
+
+        Examples:
+        parseFloat("90.75") ==> 90.75 as numeric value
+        parseInt("90.75") ==> 90 as numeric value (ignore the decimals!!!!)
+        parseInt("7") ==> 7 as numeric value
+
+        be careful with this example below:
+        parseInt("78.5") ==> 78 (ignore the decimals!!!!)
+        */
+
+        let book1 = parseFloat(prompt("Enter the price of your first book")); // 78.56
+        let book2 = prompt("Enter the price of your second book"); // 34.18
+        book2 = parseFloat(book2);
+
+        let bookTotal = book1 + book2;
+        console.log("The total of your two books is: $" + bookTotal);
+        document.write("<p>The total of your two books is: $" + bookTotal+"</p>");
+
+
+        /*
+            Like Any Programming language, JavaScript also follows the Math rules (like MS Excel):
+            PEDMAS OR BEDMAS
+            P => Parenthesis: ( and ) OR B => Brackets
+            E => Exponent => example: 5 to the power of 2 which means 5 x 5 = 25
+            D => Division
+            M => Multiplication
+            A => Addition
+            S => Subtraction
+        */
+
+
+        /*
+        Besides these two very specific functions that convert text to numbers:
+        - parseFloat()
+        - parseInt()
+    
+        JS also has another general function to convert text to number:
+        Number() <= be careful that N is capital
+        you can see that Number() function doesn't follow the naming convention "camelCase"
+        because it's a "Constructor"
+    
+        The Number() function converts the object argument to a number that represents the object's value.
+        If the value cannot be converted to a legal number, NaN is returned.
+        */
+        let num1 = Number(prompt("Please enter your first number: ", 0));
+        let num2 = Number(prompt("Please enter your second number: ", 0));
+
+        let addNumbers = num1 + num2;
+        alert("The total of your two numbers is: " + addNumbers);
+
+        /*
+        confirm() will return "true" if OK button is clicked 
+        or "false" if CANCEL button is clicked
+        */
+        confirm("Click OK to accept the deal of cancel to reject it!");
+    
+        // testing:
+        let boolValue = confirm("Click either OK or Cancel:");
+        console.log(boolValue);
+    </script>
+</body>
+
+</html>

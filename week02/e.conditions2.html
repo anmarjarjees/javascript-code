@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         /*
+            In JavaScript, we have the following 3 keywords and are called: "Logical Operator"
+            - AND ==> &&
+            - OR ==> ||
+            - NOT ==> !
+        */
+
+         /*
+           With the logical operators we need to use following
+           table. This table is called "Truth Table"
+
+           OR Formula (OR Truth Table):
+           LEFT-HAND SIDE OR RIGHT-HAND-SIDE ==> BOOLEAN RESULT
+           TRUE OR TRUE ==> TRUE
+           TRUE OR FALSE ==> TRUE
+           FALSE OR TRUE ==> TRUE
+           FALSE OR FALSE ==> FALSE <== All FALSE = FALSE (The key)
+
+           AND Formula (And Truth Table):
+           LEFT-HAND SIDE AND RIGHT-HAND-SIDE ==> BOOLEAN RESULT
+           TRUE AND TRUE ==> TRUE <== All TRUE = TRUE (The key)
+           TRUE AND FALSE ==> FALSE
+           FALSE AND TRUE ==> FALSE
+           FALSE AND FALSE ==> FALSE
+
+           NOT:
+           NOT TRUE (!TRUE) ==> FALSE
+           NOT FALSE (!FALSE) ==> TRUE
+
+           Simple Trick:
+           Assume that:
+           TRUE = 1
+           FALSE = 0
+           Remember that there is no "2", the maximum value is 1
+           OR = +
+           AND = *
+
+           Examples:
+           TRUE OR TRUE ==> TRUE
+           like saying: 1 + 1 = 1
+
+           TRUE OR FALSE ==> TRUE
+           like saying: 1 + 0 = 1
+
+           TRUE AND TRUE ==> TRUE
+           like saying: 1 * 1 = 1
+
+
+           TRUE AND FALSE ==> FALSE
+           like saying: 1 * 0 = 0
+       */
+
+    //    Here is the simple solution using our classical way:
+        // if (age is greater than or equal to 18)
+        if (age >= 18) {
+            document.write("Yes, you can buy fireworks");
+        }
+
+        // So let's try to repeat the same example using the "NOT" Logical Operator, the symbol is: !
+        // more example: ! (not)
+        // the NOT operation !
+        // if (age is NOT less than 18)
+        if (!age < 18) {
+            document.write("Yes, you can buy fireworks");
+        }
+
+        /*
+        Problem: If the person lives, study, work in Toronto,
+        he/she can register for TPL
+
+        Write the code using if function:
+        */
+
+        let liveInToronto = false;
+        let studyInToronto = false;
+        let workInToronto = true;
+
+        if (liveInToronto || studyInToronto || workInToronto) {
+            document.write("You can register with TPL");
+        }
+
+        // Task1: ask the user to input the two exam marks:
+        let exam1 = prompt("Enter your first exam");
+        exam1 = parseFloat(exam1);
+
+        // or in one line:
+        let exam2 = parseFloat(prompt("Enter your second exam"));
+
+        // Task2: find the average
+        let average = (exam1 + exam2) / 2;
+
+        // for testing:
+        console.log(average);
+        // Task3: based on the following:
+        /*
+        Problem:
+        - scan/check the "average" value:
+        - if the average is 90+ AND less or equal to 100 (between 90 and 100)==> Excellent
+        - else if the average is 80+ AND less or equal to 89 (between 80 and 98)==> Very Good
+        - else if the average is 70+ AND less or equal to 79 ==> Good
+        - else if the average is 60+ AND less or equal to 69 ==> Satisfactory
+        - else if the average is 0+ and less than 60 ==> Fail
+        - else ==> Invalid Average Value
+
+        To solve this problem we need to use
+            "Logical Operator"
+            - AND ==> &&
+            - OR ==> ||
+            - NOT ==> !
+
+        Good Example for your first assignment
+        */
+
+        if (average >= 90) {
+            document.write("<p>Excellent (Honors)</p>");
+        }  else if (average >= 80 && average <= 89) {
+            // Very Good ==> 80 - 89
+            document.write("<p>Very Good</p>");
+        } else if (average >= 70 && average <= 79) {
+            // Good ==> 70 - 79
+            document.write("<p>Good</p>");
+        } else if (average >= 60 && average <= 69) {
+            // Satisfactory ==> 60 - 69
+            document.write("<p>Satisfactory</p>");
+        } else if (average >= 0 && average < 60) {
+            // Unsatisfactory ==> 0 - 59
+            document.write("<p>Unsatisfactory</p>");
+        } else {
+            document.write("<p>Invalid Input!</p>");
+        }
+        
+    </script>
+</body>
+</html>

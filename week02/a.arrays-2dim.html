@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         let oneDimensionalArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+
+          // Multidimensional Arrays (2 dimensions) =>2 arrays:
+    /*
+         var my2DArray = [ array1, array2, array3, ...  ];
+         
+         array1 = [ value1, value2, value3 ]
+         array2 = [ value1, value2, value3 ]
+         array3 = [ value1, value2, value3 ]
+     */
+
+     /* 
+     Every element is an array by itself!
+     */
+     let twoDimensionalArray = [
+      ["a", "b", "c"],
+      ["d", "e", "f"],
+      ["g", "h", "i"]
+    ];
+    console.log(twoDimensionalArray);
+
+    // output the first element
+    console.log(twoDimensionalArray[0]); // ['a', 'b', 'c']
+
+    // output the last element
+    console.log(twoDimensionalArray[2]); // ["g", "h", "i"]
+
+    // get the first element from the first array which is "a"!
+    // Access the first element/array (the first dimension)
+    // then access the second array
+    // [0] => ["a", "b", "c"]
+    // [0] => "a"
+    console.log(twoDimensionalArray[0][0]); // a
+
+    // Task: output/print the letter "h"
+    console.log(twoDimensionalArray[2][1]); // h
+
+    // Another example of two dimensional array:
+    let officeApps = [
+      ["Word", "2 Weeks", "2 Assignments"],
+      ["PowerPoint", "1 Week", "1 Assignment"],
+      ["Excel", "2 Weeks", "1 Assignment"]
+    ];
+
+     // Output "PowerPoint"
+     console.log(officeApps[2][0]);
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+            Variable is just a container inside the Computer Memory (RAM)
+            Random Access Memory that contains some data.
+
+            it's a place to hold some data temporarily while the file still running
+
+        3 ways:
+        - var (since the beginning of JS - old way) => globally level scope
+        - let (the modern one, added in ES6/ ES2015) => block-level scope
+        - const => block-level scope
+        */
+
+        // we can declare a variable using using the keyword "var" or "let"
+        // no errors for this code!
+        var name = "Alex";
+        var name = "Chow";
+
+        console.log(name);
+
+        // we can't declare the variables two times with let!
+        let user = "Sam";
+        user = "Simpson";
+
+        /*
+        In Java, C# ==> Error
+        int x = 1;
+        int x = 2;        
+        */
+
+        let subject = "JS";
+        subject = "JS framework";
+
+        const PROGRAM = "CMPG";
+        // PROGRAM = "CSTN";
+        // Uncaught TypeError: Assignment to constant variable.
+
+        /*
+        HINT: Always use "const" unless you know you're going to reassign the value
+        */
+
+        let points;
+        points = 10;
+
+        // const COLLEGE;
+        // 'const' declarations must be initialized.
+
+        /*
+         Variable Naming Rules:
+        1. No spaces, but we can use the underscore symbol: _
+        2. We can't start with numbers
+        3. We can't add special characters % ^ etc...
+
+        In JS we have a naming convention that we should follow:
+        is called "camelCase" ==> myFinalExam
+
+        in other programming languages like C#:
+        they have "PascalCase" ==> MyFinalExam
+
+        in other programming languages like Python:
+        they have "snake_case" ==> my_final_exam
+
+         examples:
+         a variable for full name => var fullName
+        */
+
+        // 1:
+        // Using the keyword "let" to declare our 3 variables:
+        let exam1 = 80;
+        let exam2 = 92;
+        let exam3 = 87;
+
+        let total = exam1 + exam2 + exam3;
+        let avg1 = total / 3;
+
+        // or avg2:
+        // do it all in one line...
+        
+        console.log(avg1);
+    </script>
+
+
+</body>
+
+</html>

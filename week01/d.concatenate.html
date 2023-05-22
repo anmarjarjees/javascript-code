@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /* 
+        In Java, Py => +
+        In PHP => .
+        In JS => +
+        */
+        let name = 'Alex';
+        let age = 60;
+
+        let firstName = "Alex";
+        let lastName = "Chow";
+
+        // concatenation:
+        // below we are using the + symbol not as addition math operation
+        // in JS the + symbol can be also used to combine strings also!
+        let fullName = firstName + lastName; // "Alex"+"Chow" => AlexChow
+        console.log(fullName);
+
+        // Classical Way:
+        console.log("First Name: " + name + " - Age: " + age);
+        // or with single quote:
+        console.log('First Name: ' + name + ' - Age: ' + age);
+
+        // Template String => Template Literal ES6 (2015)
+        // with this way => we cannot use ' or "
+        // backtick `
+        console.log(`First Name is ${name} - Age: ${age}`);
+
+        // more examples:
+        var num1 = 100; // a pure numeric value
+        var num2 = "200"; // a numeric value but because of the ", JS will treat it as string (text)!
+        // JS: number + string => JS will concatenate them
+        // JS: string + string => JS will concatenate them
+        // JS: number + number => JS will add (the math operation +) them
+        console.log(num1 + num2); // 100200
+
+        // Another modern way to use something called "literal template"
+        /*
+        We can inject the values using the ${TextGoesHere} into "Template Literals" Syntax
+        That We Used For Concatenation:
+        */
+        // we can ignore the ' or " and just warp our entire text with ` first
+        // wrap every variable with { } with the symbol of $ => ${variableName}
+        console.log(`The average of ${exam1} and ${exam2} is: ${avg}`);
+
+    </script>
+</body>
+
+</html>
