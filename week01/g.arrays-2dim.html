@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script>
-         let oneDimensionalArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 
-          // Multidimensional Arrays (2 dimensions) =>2 arrays:
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two-Dimensional Array</title>
+</head>
+
+<body>
+  <!-- Two-Dimensional Array  -->
+  <script>
+    let oneDimensionalArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+
+    // Multidimensional Arrays (2 dimensions) =>2 arrays:
     /*
          var my2DArray = [ array1, array2, array3, ...  ];
          
@@ -19,10 +22,10 @@
          array3 = [ value1, value2, value3 ]
      */
 
-     /* 
-     Every element is an array by itself!
-     */
-     let twoDimensionalArray = [
+    /* 
+    Every element is an array by itself!
+    */
+    let twoDimensionalArray = [
       ["a", "b", "c"],
       ["d", "e", "f"],
       ["g", "h", "i"]
@@ -46,14 +49,25 @@
     console.log(twoDimensionalArray[2][1]); // h
 
     // Another example of two dimensional array:
+    let subjects = [
+      ["HTML", "CSS", "JavaScript"],
+      ["PHP", "Java", "C#"],
+      ["Vue", "React", "Angular"]
+    ];
+
+    // Task: Output "JavaScript"
+    console.log(subjects[0][2]); // "JavaScript"
+
+    // Another example of two dimensional array:
     let officeApps = [
       ["Word", "2 Weeks", "2 Assignments"],
       ["PowerPoint", "1 Week", "1 Assignment"],
       ["Excel", "2 Weeks", "1 Assignment"]
     ];
 
-     // Output "PowerPoint"
-     console.log(officeApps[2][0]);
-    </script>
+    // Output "PowerPoint"
+    console.log(officeApps[2][0]);
+  </script>
 </body>
+
 </html>

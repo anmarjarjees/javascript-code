@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Variables</title>
+    <title>Variables and Data Types</title>
 </head>
 
 <body>
+    <!-- put all your HTML contents First -->
 
+    <!-- Then adding the script element at the end: -->
     <script>
         /*
             Variable is just a container inside the Computer Memory (RAM)
@@ -76,6 +78,40 @@
          a variable for full name => var fullName
         */
 
+        /*
+       Primitive Data Type:
+       directly assigned to memory
+       - string
+       - number
+       - boolean
+       - null
+       - undefined
+       - symbol (added in ES6 (2015))
+       */
+        const name = 'Alex Chow'; // single quote
+        const course = "JavaScript"; // double quote
+        const age = 30;
+        const rating = 4.5;
+        const isCool = true;
+        const isHot = false;
+        const x = null; // empty variable
+
+        /*
+        We can explicity define undefined 
+        */
+        const y = undefined;
+        // OR:
+        let z; // z is undefined like y
+
+
+        // using typeof => return the data type
+        console.log(typeof name); // string
+        console.log(typeof age); // number
+        console.log(typeof rating); // number
+        console.log(typeof isCool); // boolean
+        console.log(typeof x); // object (wrong by JS! Yes, it's null)
+        console.log(typeof y); // undefined
+
         // 1:
         // Using the keyword "let" to declare our 3 variables:
         let exam1 = 80;
@@ -87,7 +123,7 @@
 
         // or avg2:
         // do it all in one line...
-        
+
         console.log(avg1);
     </script>
 

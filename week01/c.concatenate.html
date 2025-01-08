@@ -33,11 +33,6 @@
         // or with single quote:
         console.log('First Name: ' + name + ' - Age: ' + age);
 
-        // Template String => Template Literal ES6 (2015)
-        // with this way => we cannot use ' or "
-        // backtick `
-        console.log(`First Name is ${name} - Age: ${age}`);
-
         // more examples:
         var num1 = 100; // a pure numeric value
         var num2 = "200"; // a numeric value but because of the ", JS will treat it as string (text)!
@@ -46,15 +41,27 @@
         // JS: number + number => JS will add (the math operation +) them
         console.log(num1 + num2); // 100200
 
-        // Another modern way to use something called "literal template"
+        // Another modern way to use something called "literal template" or "Template String"
+        // Template Literal ES6 (ECMAScript 6) or (JavaScript 2015)        
         /*
         We can inject the values using the ${TextGoesHere} into "Template Literals" Syntax
-        That We Used For Concatenation:
+        
+        NOTE: With this way => we cannot use ' or " => only backtick `
         */
+        console.log(`First Name is ${name} - Age: ${age}`);
         // we can ignore the ' or " and just warp our entire text with ` first
         // wrap every variable with { } with the symbol of $ => ${variableName}
         console.log(`The average of ${exam1} and ${exam2} is: ${avg}`);
 
+        /*
+        The ECMAScript specification is a standardized specification of a scripting language
+        developed by Brendan Eich of Netscape; 
+        initially named Mocha, then LiveScript, and finally JavaScript.
+         
+        In December 1995, Sun Microsystems and Netscape announced JavaScript in a press release.
+        Link: https://en.wikipedia.org/wiki/ECMAScript
+        Link: https://developer.mozilla.org/en-US/docs/Glossary/ECMAScript
+        */
     </script>
 </body>
 
