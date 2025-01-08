@@ -24,6 +24,8 @@
            new Name() => Constructor
            
            new Array() => Constructing an array
+
+        Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Array_methods
        */
 
         // declare a new array and initialize it with 5 numeric values:
@@ -32,19 +34,20 @@
 
         // Or
         let fruits = ['apples', 'oranges', 'pears'];
+        /* 
+        Arrays are O Based Index:
+        *************************
+        0 - apples
+        1 - oranges
+        2 - pears
+
+        The length (size) of this array is 3 (has 3 elements)
+        So the index of the last element is the length - 1
+        which means the last element "pears" has the index of 2 => 3-1
+        */
 
         // in JS, different data types as in PHP:
         let mixed = ['Testing', true, 12, 7.5];
-
-        /*
-        JS is not statically typed language:
-
-        so we do not use => const name:string;
-
-        in "TypeScript" which is a superset of JavaScript
-        it's JS with some added features
-        so it has the static typing feature: look at "TypeScript"
-        */
 
         // arrays are 0 based in any language
         console.log(fruits);
@@ -57,7 +60,21 @@
         console.log(fruits);
 
         // not good to use [3] as we might override a value!
+
+
+        // The sound of music :-)
+        let musicNotes = ["Do", "Re", "Mi", "Fa", "Sol", "la"]; // missing final note
+        // Using the length property of Array object
+        // musicNotes.length => 6 elements => Last Element ""la" has the of index value of 5
+        // so to add a "new" element at the end of an array, we use the array length value!
+        musicNotes[musicNotes.length] = "Ti";
+        console.log(musicNotes);
+
         // using push() instead => adding in the end
+        /* 
+        push() method => add one or more elements to the end of an array. 
+        It modifies the original array and returns the new length of the array
+        */
         fruits.push('bananas');
         console.log(fruits);
 
@@ -66,6 +83,10 @@
         console.log(fruits);
 
         // pop() method for taking the last one
+        /* 
+        pop() method => remove the last element from an array and returns that element. 
+        It also modifies the length of the array        
+        */
         fruits.pop();
         console.log(fruits);
 
@@ -76,12 +97,21 @@
         console.log(Array.isArray(fruits)); // true
         subjects = "JS, PHP, Java, and C#";
         console.log(Array.isArray(subjects)); // false
+        /* 
+        shift() => remove element from the beginning of the array
+        */
 
         // More example: (working as Front-End Developer)
         let myFavSubjects = ["HTML", "CSS", "JavaScript"];
 
         // for testing: output the CSS subject of the array:
         console.log(myFavSubjects[1]) // CSS
+
+        /* 
+        splice() method can be used to add or remove elements from a specific position in an array.
+
+        Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+        */
 
         // Task Output:
         // "We should start by learning {HTML} then {CSS} before learning {JavaScript}"

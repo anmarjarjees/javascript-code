@@ -21,33 +21,40 @@
          - notice that default value is "optional" which means we can write (put) it or just ignore it
 
          prompt("Text that we want to display", default value)
+
+      return => string | null
     */
 
         let clientName = prompt("Hi there! What's your name please?");
-        console.log("Your full name is: " + clientName);
+        console.log("Your name is: " + clientName);
         // Or:
         /* 
         document.write() is like echo() in PHP :-)
         */
         document.write("Your full name is: " + clientName);
-        
+
         console.log(typeof (clientName));
 
         /* 
-        Anything in JS is an object
+        Don't forget that anything in JS is an object :-)
+        Using the string property "length":
         */
-        console.log("You name has "+clientName.length+" characters");
+        console.log("You name has " + clientName.length + " characters");
 
 
         let clientAge = prompt("Hi " + clientName + "! How old are you please?");
         console.log(typeof (clientAge));
 
-        // Below: if the user didn't put any value for the first/second exam, the default value will be 0
-        let exam1 = prompt("Enter the value of your first exam:", 0); // 10 as a number => prompt will return "10"
-        let exam2 = prompt("Enter the value of your second exam:", 0); // 8 as a number => prompt will return "8"
+        // Below: if the user didn't put any value for the first/second exam, 
+        // the default value will be 0:
+        let exam1 = prompt("Enter the value of your first exam:", 0);
+        // if user enters 10 as a number => prompt will return "10"
 
-           // Because the two values are returned from the prompt() function as string
-        // So JS will use the + for concatenating these two string variables
+        let exam2 = prompt("Enter the value of your second exam:", 0);
+        // if users enters 8 as a number => prompt will return "8"
+
+        // Because the two values are returned from the prompt() function as string
+        // So JS will use the "+" for concatenating these two string variables
         var total = exam1 + exam2; // "10" + "8" = "108"
         console.log("The total of exam1 and exam2 is: " + total);
 
@@ -79,19 +86,26 @@
 
         be careful with this example below:
         parseInt("78.5") ==> 78 (ignore the decimals!!!!)
+        
+        We can also use "Number()" to convert a string into any number (int or decimal)
+        will be explained in details below
         */
 
+        // in one line:
         let book1 = parseFloat(prompt("Enter the price of your first book")); // 78.56
+
+        // in two lines:
         let book2 = prompt("Enter the price of your second book"); // 34.18
         book2 = parseFloat(book2);
 
         let bookTotal = book1 + book2;
         console.log("The total of your two books is: $" + bookTotal);
-        document.write("<p>The total of your two books is: $" + bookTotal+"</p>");
+        document.write("<p>The total of your two books is: $" + bookTotal + "</p>");
 
 
         /*
-            Like Any Programming language, JavaScript also follows the Math rules (like MS Excel):
+            Like Any Programming language, 
+            JavaScript also follows the Math rules (like MS Excel):
             PEDMAS OR BEDMAS
             P => Parenthesis: ( and ) OR B => Brackets
             E => Exponent => example: 5 to the power of 2 which means 5 x 5 = 25
@@ -118,15 +132,16 @@
         let num1 = Number(prompt("Please enter your first number: ", 0));
         let num2 = Number(prompt("Please enter your second number: ", 0));
 
-        let addNumbers = num1 + num2;
-        alert("The total of your two numbers is: " + addNumbers);
+        let numTotal = num1 + num2;
+        alert("The total of your two numbers is: " + numTotal);
+        document.write(`The total of ${num1} and ${num2} is ${numTotal}`);
 
         /*
-        confirm() will return "true" if OK button is clicked 
-        or "false" if CANCEL button is clicked
+        confirm() will return "true" if "OK" button is clicked 
+        or "false" if "CANCEL" button is clicked
         */
         confirm("Click OK to accept the deal of cancel to reject it!");
-    
+
         // testing:
         let boolValue = confirm("Click either OK or Cancel:");
         console.log(boolValue);
