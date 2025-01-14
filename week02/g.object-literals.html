@@ -5,21 +5,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Object Literals</title>
 </head>
 
 <body>
     <script>
         /*
-        Object Literals: Basically key value pairs
+        Object Literals: 
+        - a way to define an object using a simple and concise syntax
+        - are written inside curly braces { }
+        - using key-value pairs separated by commas:
+            > "key" is a string (or identifier), 
+            > "value" can be any valid JavaScript data type
+        
+        Basically => Key-Value Pairs: 
+        - Each key is followed by a colon : 
+        - and its corresponding value
         */
         let person = {
-            // properties (fields)
-            firstName: "John",
-            lastName: "Doe",
+            // Keys => properties (fields)
+            firstName: "Alex",
+            lastName: "Chow",
             age: 48,
-            jobTitle: "Teacher",
-            courses: ["Java", "JavaScript", "PHP"],
+            jobTitle: "Instructor",
+            courses: ["Java", "JavaScript", "PHP", "Python"],
             // method
             getInfo: function () {
                 document.write("<h2>Full Info</h2>");
