@@ -11,6 +11,7 @@
 <body>
     <!-- One-Dimensional Array: -->
     <script>
+        // Internal JS:
         /*
         Arrays: variable that holds multiple values
         - Arrays can have multiple values
@@ -32,18 +33,19 @@
         let numbers = new Array(1, 2, 3, 4, 5);
         console.log(numbers);
 
-        // Or
-        let fruits = ['apples', 'oranges', 'pears'];
+        // Or like PHP => $numbers = [200,300,400,500];
+        let fruits = ['apples', 'oranges', 'pears', 'bananas', 'cherries'];
         /* 
         Arrays are O Based Index:
         *************************
         0 - apples
         1 - oranges
         2 - pears
+        and so on...
 
-        The length (size) of this array is 3 (has 3 elements)
+        The length (size) of this array is 5 (has 5 elements)
         So the index of the last element is the length - 1
-        which means the last element "pears" has the index of 2 => 3-1
+        which means the last element "cherries" has the index of 4 => 5-1
         */
 
         // in JS, different data types as in PHP:
@@ -65,12 +67,22 @@
         // The sound of music :-)
         let musicNotes = ["Do", "Re", "Mi", "Fa", "Sol", "la"]; // missing final note
         // Using the length property of Array object
-        // musicNotes.length => 6 elements => Last Element ""la" has the of index value of 5
+        // musicNotes.length => 6 elements => Last Element "la" has the of index value of 5
         // so to add a "new" element at the end of an array, we use the array length value!
         musicNotes[musicNotes.length] = "Ti";
         console.log(musicNotes);
 
-        // using push() instead => adding in the end
+        /* 
+        In JS everything is an object!
+        array is an Object => Object has properties and methods()
+
+        Examples of array methods:
+        pop(), push() + shift(), unshift()
+
+        */
+
+        // pop() => removes the last element (removes from the end)
+        // using push() => adding in the end
         /* 
         push() method => add one or more elements to the end of an array. 
         It modifies the original array and returns the new length of the array
@@ -78,6 +90,7 @@
         fruits.push('bananas');
         console.log(fruits);
 
+        // shift(), unshift() => affect the beginning of the array
         // using unshift() => adding in the beginning of the array
         fruits.unshift('strawberries');
         console.log(fruits);
@@ -122,7 +135,8 @@
         // the third element (index:3) of my myFavSubjects is "JavaScript"
         console.log("We should start by learning " + myFavSubjects[0] + " then " + myFavSubjects[1] + " before learning " + myFavSubjects[2]);
 
-
+        // Template Literal:
+        console.log(`we are learning ${myFavSubjects[2]}`);
     </script>
 </body>
 

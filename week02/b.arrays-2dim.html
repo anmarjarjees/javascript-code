@@ -67,6 +67,42 @@
 
     // Output "PowerPoint"
     console.log(officeApps[2][0]);
+
+    /*
+        Task:
+        create a list of my G@I semesters:
+        - semester#1 
+        - semester#2
+        - semester#3
+        - semester#4
+        we need an array to save these 4 semester
+
+        for each semester => list the major topics 
+        sem1 = "Java, html, Arduino"
+        sem2 = "java,php,sql,python"
+        sem3= "java, js, C#"
+        */
+    let mySemesters = [
+      ["Java", "html", "Arduino"],
+      ["java", "php", "sql", "python"],
+      ["java", "js", "C#"]
+    ];
+    console.log(mySemesters);
+
+    // task print: "In ASP.NET, we are learning C#"
+
+    // if we have a simple 1-dim array "myCourses":
+    let myCourses = ["Java", "Python", "PHP", "C#"];
+    document.write(`<br>In ASP.NET, we are learning ${myCourses[3]}`);
+
+    // but we need to use our 2-dim array "mySemesters":
+    document.write(`<br>In ASP.NET, we are learning ${mySemesters[2][2]}`);
+    /*
+    Question Example of code output:
+    a. In ASP.NET, we are learning Java
+    b. In ASP.NET, we are learning C# (correct answer)
+    c. In ASP.NET, we are learning js 
+    */
   </script>
 </body>
 

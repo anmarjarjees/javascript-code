@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Conditions-Part2</title>
 </head>
 
 <body>
@@ -88,7 +88,9 @@
         let workInToronto = true;
 
         if (liveInToronto || studyInToronto || workInToronto) {
-            document.write("You can register with TPL");
+            document.write("You can register with TPL for free");
+        } else {
+            console.log("You have to pay")
         }
 
         // Task1: ask the user to input the two exam marks:
@@ -108,9 +110,9 @@
         Problem:
         - scan/check the "average" value:
         - if the average is 90+ AND less or equal to 100 (between 90 and 100)==> Excellent
-        - else if the average is 80+ AND less or equal to 89 (between 80 and 98)==> Very Good
-        - else if the average is 70+ AND less or equal to 79 ==> Good
-        - else if the average is 60+ AND less or equal to 69 ==> Satisfactory
+        - else if the average is 80+ AND less 90 ==> Very Good
+        - else if the average is 70+ AND less 80 ==> Good
+        - else if the average is 60+ AND less 70 ==> Satisfactory
         - else if the average is 0+ and less than 60 ==> Fail
         - else ==> Invalid Average Value
 
@@ -122,25 +124,35 @@
 
         Good Example for your first assignment
         */
-
-        if (average >= 90) {
+        if (average >= 90 && average <= 100) {
             document.write("<p>Excellent (Honors)</p>");
-        } else if (average >= 80 && average <= 89) {
-            // Very Good ==> 80 - 89
+        } else if (average >= 80 && average < 90) {
+            // Very Good ==> 80 - 89 (handling decimal values too)
             document.write("<p>Very Good</p>");
-        } else if (average >= 70 && average <= 79) {
-            // Good ==> 70 - 79
+        } else if (average >= 70 && average < 80) {
+            // Good ==> 70 - 79 (handling decimal values too)
             document.write("<p>Good</p>");
-        } else if (average >= 60 && average <= 69) {
-            // Satisfactory ==> 60 - 69
+        } else if (average >= 60 && average < 70) {
+            // Satisfactory ==> 60 - 69 (handling decimal values too)
             document.write("<p>Satisfactory</p>");
         } else if (average >= 0 && average < 60) {
-            // Unsatisfactory ==> 0 - 59
-            document.write("<p>Unsatisfactory</p>");
+            // Fail ==> 0 - 59 (handling decimal values too)
+            document.write("<p>Fail</p>");
         } else {
-            document.write("<p>Invalid Input!</p>");
+            // If the average is greater than 100 or less than 0
+            document.write("<p>Invalid Average Value!</p>");
         }
 
+        /*
+        NOTE TO REMEMBER:
+        document.write() is generally not recommended for interactive content,
+        as it can overwrite the whole page when called after the document has loaded. 
+        
+        For modern JavaScript, it's better to use console.log() for debugging 
+        or manipulate the DOM using methods like:
+        document.getElementById().innerHTML for displaying results
+        as it will be explained in details later :-)
+        */
     </script>
 </body>
 
