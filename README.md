@@ -1,4 +1,4 @@
-# JavaScript-Lectures-Code:
+# JavaScript Lectures Code:
 
 The contents of this repository is based on my main and original repos: 
 - [JavaScript-Class](https://github.com/anmarjarjees/javascript-class)

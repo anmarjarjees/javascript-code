@@ -33,14 +33,14 @@
             getInfo: function () {
                 document.write("<h2>Full Info</h2>");
                 /*
-               To access any object property => object.propertyName
+                To access any object property => object.propertyName
 
-               Yes, we can use for example: person.firstName (Not recommended)
-               
-               To access any object member (properties/methods) within this object itself
-               we need to use a JS keyword "this" (it's better than using the object name itself)
-               so the keyword "this" is used when we want to refer to information within the object
-               */
+                Yes, we can use for example: person.firstName (Not recommended)
+                
+                To access any object member (properties/methods) within this object itself
+                we need to use a JS keyword "this" (it's better than using the object name itself)
+                so the keyword "this" is used when we want to refer to information within the object
+                */
                 document.write("Full Name: " + this.firstName);
             }
         } // person
@@ -96,6 +96,49 @@
         // Task: Alex White lives in Toronto
         document.write(`<br>${employee.firstName} ${employee.lastName} lives in ${employee.address.city}`);
 
+        // Creating an array of objects:
+        let courses = [
+            {
+                section: 205,
+                name: "Java Advanced",
+                semester: 3,
+                day: "Wed",
+                isOnline: false
+            },
+            {
+                section: 206,
+                name: "JavaScript",
+                semester: 3,
+                day: "Fri",
+                isOnline: true
+            },
+            {
+                section: 203,
+                name: "ASP.NET",
+                semester: 3,
+                day: "Wed",
+                isOnline: false
+            },
+            {
+                section: 202,
+                name: "PHP",
+                semester: 2,
+                day: "Mon",
+                isOnline: true
+            },
+        ];
+
+        // looping through an array:
+        for (let index = 0; index < courses.length; index++) {
+            console.log(courses[index].name);
+            document.write("<br>" + courses[index].name)
+
+        }
+
+        for (let course of courses) {
+            // output the entire object:
+            document.write("<br>" + course.name);
+        }
     </script>
 </body>
 
