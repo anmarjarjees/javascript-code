@@ -139,6 +139,21 @@
             // output the entire object:
             document.write("<br>" + course.name);
         }
+
+        // arrow function
+        courses.forEach((element) => {
+            document.write("<br>" + element.name);
+        });
+
+        // OR without ()
+        courses.forEach(element => {
+            document.write("<br>" + element.name);
+        });
+
+        // anonymous function
+        courses.forEach(function (course) {
+            document.write("<br>" + course.name);
+        });
     </script>
 </body>
 

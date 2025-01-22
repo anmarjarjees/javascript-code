@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+
+<body>
+
+    <!-- Always place the script at the very end -->
+    <script>
+        /*
+            functions are useful if you want to repeat/reuse the same code many times.
+            So instead of typing 4 lines of code and make a copy and paste them 3 times (for example),
+            we can just encapsulate them inside a custom function
+            (function that belongs to us not to JavaScript) block
+            and just call that function to execute its code when we need it
+
+            Review: Examples of some JavaScript built-in functions or methods that we have used:
+            - alert()
+            - prompt()
+            - parseFloat()
+            - parseInt()
+            - document.write()
+            - console.log()
+
+            Method and Function:
+            Yes we use these two words interchangeably or we always switching between them like saying function or method but they are not exactly the same:
+
+            Function: is just a function name by itself
+            functionName() ==> like parseFloat() or parseInt()
+
+            Method: is a function attached to an "object" using the "dot" notation
+            object.methodName() ==> like console.log() or document.write()
+
+            We will have more explanation about "objects" later
+        */
+
+        // Task: Create a function to accept any number then output even or odd message based on the number
+        // this function needs to have a number to test,
+        // so we have to pass this "number" as an argument to the function
+        /*
+            Review:
+            to find if the number is even or odd:
+            we can divide the number by 2 then check the "Remainder"
+            if the remainder is 0 then it's an even number
+            else it's an odd number
+    
+            in JS the operation to get the remainder named modulo "%"
+        */
+        // 1) Create a function:
+        function testEvenOdd(number) {
+            if (number % 2 == 0) {
+                document.write("Your number " + number + " is even");
+            } else if (number % 2 == 1) {
+                document.write("Your number " + number + " is odd");
+            } else {
+                document.write("Invalid Number!");
+            }
+        }
+
+        // This function has two parameters to accept two arguments:
+        // First parameter (placeholder) is "content" => The content we want to display
+        // Second parameter (placeholder) is "element" => The HTML element/tag we like to use
+        // Example: JavaScript and h1 => <h1>JavaScript</h1>
+        // parameters
+        function display(content, element) {
+            // document.write("<" + element + ">" + content + "</" + element + ">");
+            // OR
+            document.write(`<${element}>${content}</${element}>`);
+        }
+
+        // arguments
+        display("JavaScript", "h1");
+
+        /*
+    most of the time, we don't want the function to output (print) the result into the browser,
+    we just need to get the result and save it into a variable for example.
+
+    Task:
+    Create a function that:
+    1- Accepts two numeric values [two placeholder variables, parameters]
+    these two variables will be numbers to represent exam marks, or assignments marks, or project marks, etc..
+
+    2- Find the average of these two numbers (two marks)
+    3- Return the result (average value)!
+
+    so this function will have something new which is "returning a value".
+    We don't want this function to print/output the result immediately in the browser!
+    We just want this function give us (return) the result
+
+    In this case will need to use the JavaScript keyword "return"
+
+    so to summarize;
+    our own custom functions can return values
+    like other built-in JavaScript functions that return values.
+
+    for example:
+    we used "prompt()" to return whatever the user inputs (as a string):
+    var userName = prompt("What's your name?");
+
+    create a simple function to receive two numeric values
+    this function will return the average of these two values
+
+    build the function block:
+    function myFunction() { }
+    between () ==> function parameter(s)
+    */
+
+        // 1. Create a function:
+        // with the function's name we also use camelCase, and let's name it "findAverage"
+        // This function should return the average of any two numeric values:
+        function findAverage(value1, value2) {
+            // just find the average:
+            var average = (value1 + value2) / 2;
+            /*
+                this function is supposed to return the value of the average
+                as the function name indicates "average",
+                and that's why it's better to remove the code for printing which is document write.
+            */
+            // document.write("<br>" + average);
+
+
+            // since we need get the value of average outside the function
+            // we can let our function findAverage return the value of average
+            // we can simply use the keyword return:
+            // output the value of average to our internal code not to the user screen to the HTM: document
+
+            /*
+            return keyword will:
+            - return the value of the local variable "average" inside the function
+            to any global variable outside the function
+            - Terminate the function
+            */
+            return average;
+        }
+
+        // let's use our function in different example:
+        let exam1 = parseFloat(prompt("Enter your first exam"));
+        let exam2 = parseFloat(prompt("Enter your second exam"));
+
+        let examAvg = findAverage(exam1, exam2);
+
+        document.write("<p> the average of " + exam1 + " and " + exam2 + " is: " + examAvg + "</p>");
+
+        /*
+        Default parameters with functions:
+        x will get the value of 10 if no value is being passed
+        y will get the value of 7 if no value is being passed
+        */
+        function add(x = 10, y = 7) {
+            console.log(x + y);
+        }
+
+        let total1 = add();
+        console.log(total1);
+
+        // Or directly:
+        console.log(add());
+
+        let total2 = add(3, 2);
+        console.log(total2);
+
+        // Or:
+        console.log(add(3, 2));
+
+        /*
+       An arrow function expression is a compact alternative to a traditional function expression,
+       but is limited and can't be used in all situations.
+    
+       using the "=>"
+       */
+        // Task: Create a function to accept any number then output even or odd message based on the number
+        // By assigning the function to a variable:
+        let testEvenOddTry1 = function (number) {
+            if (number % 2 == 0) {
+                document.write(`<p>Your number is ${number}, and it is even.</p>`);
+            } else {
+                document.write(`<p>Your number is ${number}, and it is odd.</p>`);
+            }
+        }
+        testEvenOddTry1(105);
+        testEvenOddTry1(170);
+
+        // By using arrow function:
+        // The new way of ES6 (2015):
+        let testEvenOddTry2 = (number) => {
+            if (number % 2 == 0) {
+                document.write(`<p>Your number is ${number}, and it is even.</p>`);
+            } else {
+                document.write(`<p>Your number is ${number}, and it is odd.</p>`);
+            }
+        }
+
+        testEvenOddTry2(100);
+        testEvenOddTry2(175);
+        testEvenOddTry2(135);
+
+        // Creating a function for finding the total of numbers in an array:
+        let numTotal1 = function (tempArray) {
+            let total = 0;
+            for (let i = 0; i < tempArray.length; i++) {
+                total += tempArray[i];
+            }
+            return total;
+        }
+
+        // Or:
+        let numTotal2 = (tempArray) => {
+            let total = 0;
+            for (let i = 0; i < tempArray.length; i++) {
+                total += tempArray[i];
+            }
+            return total;
+        }
+
+        // Or:
+        let numTotal3 = tempArray => {
+            let total = 0;
+            for (let i = 0; i < tempArray.length; i++) {
+                total += tempArray[i];
+            }
+            return total;
+        }
+
+
+        let myLuckNumbers = [8, 9, 5, 3, 1, 7];
+        document.write(`<p> Total of "${myLuckNumbers}" is: ${numTotal1(myLuckNumbers)}</p>`);
+        // Total of "8,9,5,3,1,7" is: 33
+
+
+        // No! The following function code will not work/run:
+        (number) => {
+            if (number % 2 == 0) {
+                document.write(`<p>Your number is ${number}, and it is even.</p>`);
+            } else {
+                document.write(`<p>Your number is ${number}, and it is odd.</p>`);
+            }
+        }
+
+        // Yes, This function will run:
+        document.write('Self run function:');
+        ((number) => {
+            console.log("Self Invoked: ", number);
+            document.write(`<p>I will run immediately, but your number is ${number}!</p>`);
+            document.write(`<p>If you check the console window, you will see that I will be called immediately!</p>`);
+        })();
+    </script>
+</body>
+
+</html>
