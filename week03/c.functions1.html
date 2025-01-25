@@ -35,6 +35,12 @@
             Method: is a function attached to an "object" using the "dot" notation
             object.methodName() ==> like console.log() or document.write()
 
+            method => called/invoked with their object/class
+            function => called/invoked just by itself
+
+            Object: properties and methods 
+                > objectName.propertyName
+                > objectName.methodName()
             We will have more explanation about "objects" later
         */
 
@@ -50,7 +56,25 @@
     
             in JS the operation to get the remainder named modulo "%"
         */
+
+        /* 
+        In Java :-)
+        public void testEvenOdd(float number) {
+            if (number % 2 ==0) {
+                System.out.println("Your number " + number + " is even");
+            } else {
+                System.out.println("Your number " + number + " is odd");
+            }
+        }
+        */
+
         // 1) Create a function:
+        /*
+        Two keywords with function/methods 
+        - Parameters
+        - Arguments 
+        */
+        // Parameter => the variable "number" => placeholder
         function testEvenOdd(number) {
             if (number % 2 == 0) {
                 document.write("Your number " + number + " is even");
@@ -60,6 +84,10 @@
                 document.write("Invalid Number!");
             }
         }
+
+        // 2) call/invoke my function => 7 is odd or even
+        // Argument => the real value we pass to the function => 7
+        testEvenOdd(7);
 
         // This function has two parameters to accept two arguments:
         // First parameter (placeholder) is "content" => The content we want to display
@@ -114,7 +142,7 @@
         // This function should return the average of any two numeric values:
         function findAverage(value1, value2) {
             // just find the average:
-            var average = (value1 + value2) / 2;
+            let average = (value1 + value2) / 2;
             /*
                 this function is supposed to return the value of the average
                 as the function name indicates "average",
@@ -130,11 +158,14 @@
 
             /*
             return keyword will:
-            - return the value of the local variable "average" inside the function
+            1- return the value of the local variable "average" inside the function
             to any global variable outside the function
-            - Terminate the function
+            2- Terminate the function
             */
             return average;
+            // Any code below the "return" statement is useless (unreachable)
+            // for testing:
+            console.log(avg); // this line will never run
         }
 
         // let's use our function in different example:
@@ -143,110 +174,7 @@
 
         let examAvg = findAverage(exam1, exam2);
 
-        document.write("<p> the average of " + exam1 + " and " + exam2 + " is: " + examAvg + "</p>");
-
-        /*
-        Default parameters with functions:
-        x will get the value of 10 if no value is being passed
-        y will get the value of 7 if no value is being passed
-        */
-        function add(x = 10, y = 7) {
-            console.log(x + y);
-        }
-
-        let total1 = add();
-        console.log(total1);
-
-        // Or directly:
-        console.log(add());
-
-        let total2 = add(3, 2);
-        console.log(total2);
-
-        // Or:
-        console.log(add(3, 2));
-
-        /*
-       An arrow function expression is a compact alternative to a traditional function expression,
-       but is limited and can't be used in all situations.
-    
-       using the "=>"
-       */
-        // Task: Create a function to accept any number then output even or odd message based on the number
-        // By assigning the function to a variable:
-        let testEvenOddTry1 = function (number) {
-            if (number % 2 == 0) {
-                document.write(`<p>Your number is ${number}, and it is even.</p>`);
-            } else {
-                document.write(`<p>Your number is ${number}, and it is odd.</p>`);
-            }
-        }
-        testEvenOddTry1(105);
-        testEvenOddTry1(170);
-
-        // By using arrow function:
-        // The new way of ES6 (2015):
-        let testEvenOddTry2 = (number) => {
-            if (number % 2 == 0) {
-                document.write(`<p>Your number is ${number}, and it is even.</p>`);
-            } else {
-                document.write(`<p>Your number is ${number}, and it is odd.</p>`);
-            }
-        }
-
-        testEvenOddTry2(100);
-        testEvenOddTry2(175);
-        testEvenOddTry2(135);
-
-        // Creating a function for finding the total of numbers in an array:
-        let numTotal1 = function (tempArray) {
-            let total = 0;
-            for (let i = 0; i < tempArray.length; i++) {
-                total += tempArray[i];
-            }
-            return total;
-        }
-
-        // Or:
-        let numTotal2 = (tempArray) => {
-            let total = 0;
-            for (let i = 0; i < tempArray.length; i++) {
-                total += tempArray[i];
-            }
-            return total;
-        }
-
-        // Or:
-        let numTotal3 = tempArray => {
-            let total = 0;
-            for (let i = 0; i < tempArray.length; i++) {
-                total += tempArray[i];
-            }
-            return total;
-        }
-
-
-        let myLuckNumbers = [8, 9, 5, 3, 1, 7];
-        document.write(`<p> Total of "${myLuckNumbers}" is: ${numTotal1(myLuckNumbers)}</p>`);
-        // Total of "8,9,5,3,1,7" is: 33
-
-
-        // No! The following function code will not work/run:
-        (number) => {
-            if (number % 2 == 0) {
-                document.write(`<p>Your number is ${number}, and it is even.</p>`);
-            } else {
-                document.write(`<p>Your number is ${number}, and it is odd.</p>`);
-            }
-        }
-
-        // Yes, This function will run:
-        document.write('Self run function:');
-        ((number) => {
-            console.log("Self Invoked: ", number);
-            document.write(`<p>I will run immediately, but your number is ${number}!</p>`);
-            document.write(`<p>If you check the console window, you will see that I will be called immediately!</p>`);
-        })();
+        document.write("<p> the average of " + exam1 + " and " + exam2 + " is: " + examAvg + "</p>");       
     </script>
 </body>
 

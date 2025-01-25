@@ -34,7 +34,8 @@
             ["Excel", "2 Weeks", "1 Assignment"]
         ];
 
-
+        // Basic Example1:
+        // Print the information about the "first" subject:
         document.write("<h1>Example1 (no formatting):</h1>");
         document.write("<ul>");
         for (let i = 0; i < 3; i++) {
@@ -42,7 +43,39 @@
         }
         document.write("</ul>");
 
-        document.write("<h1>Example2 (with formatting):</h1>");
+
+        // Basic Example2:
+        /* 
+        Our main array => officeApps => has 3 subjects (elements)
+        the first subject/element => array => ["Word", "2 Weeks", "2 Assignments"]
+
+        - Word
+        - 2 Weeks
+        - 2 Assignments
+        */
+        document.write("<h1>Example2 (without loop structure):</h1>");
+        document.write("<ul>");
+        // concatenation with + operator:
+        // print the info about "Word Course" => First Element
+        // arrayName[ index number ] => the value of any element
+        // arrayName[0] => the value of first element
+        document.write("<li>" + officeApps[0][0] + "</li>"); // output=>  Word:
+        document.write("<li>" + officeApps[0][1] + "</li>"); // output => 2 Weeks:
+        document.write("<li>" + officeApps[0][2] + "</li>"); // output => 2 Assignments:
+        document.write("</ul>");
+
+
+        // better approach!
+        document.write("<h1>Example3 (with loop structure):</h1>");
+        document.write("<ul>");
+        // for loop:
+        for (let index = 0; index < officeApps[0].length; index++) {
+            document.write("<li>" + officeApps[0][index] + "</li>");
+        }
+        document.write("</ul>");
+
+        // Advanced one with nested loops!
+        document.write("<h1>Example4 (Nested loop with formatting):</h1>");
         document.write("<ul>");
         for (let i = 0; i < 3; i++) {
             document.write("<li>");

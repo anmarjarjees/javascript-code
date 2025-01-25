@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+</head>
+
+<body>
+    <!-- All HTML Content -->
+
+    <!-- At the end => we add the script element just before the closing body tag: -->
+    <script>
+        /* 
+        1) Ask => how many items did they buy
+        2) Enter the price for each item and save them (array)
+        3) find the total
+        */
+
+        /* 
+        3 JS Built-in functions: 
+        - alert()
+        - prompt()
+        - confirm()
+
+        - methods: are methods of the object "window"
+        - window.alert()
+        - window.prompt()
+        - window.confirm()
+
+        window => the browser window => global object
+        */
+
+        /* 
+        JavaScript isNaN() built-in function 
+        to check if the value is number or not
+        */
+        // JS Built-in function => prompt()
+        let items = parseInt(prompt("how many items?"));
+
+        if (isNaN(items)) {
+            // give the user a warning message...
+            // Stop the rest of my code
+            document.write("Please give us a numeric value!");
+        } else {
+            // do our calculation...
+            // all the assignment code should go here
+            // what should I put here!!!!!
+            // the logic below for finding the total is 100% working fine :-)
+
+            // test:
+            // 3 => "3" => string
+            // console.log(typeof items);
+
+            // 3 items
+            /* 
+            - item1 3.78
+            - item2 12.56
+            - item3 10.67        
+            */
+            let itemPriceList = []; // declare an empty array
+            for (let index = 0; index < items; index++) {
+                // adding this item price to the array
+                let price = prompt("Enter the price:");
+                let NumPrice = parseFloat(price);
+                itemPriceList.push(NumPrice); // pushing the numeric price
+                // or using one line!
+                // itemPriceList.push(parseFloat(prompt("Enter the price:")));          
+            }
+            // testing:
+            console.log(itemPriceList); // the price of last item!
+
+            // total => container with 0 items
+            let cart = 0;
+            for (let index = 0; index < itemPriceList.length; index++) {
+                /* 
+                using our cart with initial value of 0
+                add the price of the first item to my cart
+                next adding the price of the second item to my cart
+                so on....
+                */
+                cart += itemPriceList[index];
+            }
+
+            document.write("invoice total: " + cart);
+        }
+
+    </script>
+</body>
+
+</html>

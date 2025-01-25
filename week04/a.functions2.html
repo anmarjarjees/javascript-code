@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions Part2</title>
+</head>
+
+<body>
+
+    <!-- Always place the script at the very end -->
+    <script>
+        /*
+        Default parameters with functions:
+        x will get the value of 10 if no value is being passed
+        y will get the value of 7 if no value is being passed
+        */
+        function add(x = 10, y = 7) {
+            console.log(x + y);
+        }
+
+        let total1 = add();
+        console.log(total1);
+
+        // Or directly:
+        console.log(add());
+
+        let total2 = add(3, 2);
+        console.log(total2);
+
+        // Or:
+        console.log(add(3, 2));
+
+        /*
+       An arrow function expression is a compact alternative to a traditional function expression,
+       but is limited and can't be used in all situations.
+    
+       using the "=>"
+       */
+        // Task: Create a function to accept any number then output even or odd message based on the number
+        // By assigning the function to a variable:
+        let testEvenOddTry1 = function (number) {
+            if (number % 2 == 0) {
+                document.write(`<p>Your number is ${number}, and it is even.</p>`);
+            } else {
+                document.write(`<p>Your number is ${number}, and it is odd.</p>`);
+            }
+        }
+        testEvenOddTry1(105);
+        testEvenOddTry1(170);
+
+        // By using arrow function:
+        // The new way of ES6 (2015):
+        let testEvenOddTry2 = (number) => {
+            if (number % 2 == 0) {
+                document.write(`<p>Your number is ${number}, and it is even.</p>`);
+            } else {
+                document.write(`<p>Your number is ${number}, and it is odd.</p>`);
+            }
+        }
+
+        testEvenOddTry2(100);
+        testEvenOddTry2(175);
+        testEvenOddTry2(135);
+
+        // Creating a function for finding the total of numbers in an array:
+        let numTotal1 = function (tempArray) {
+            let total = 0;
+            for (let i = 0; i < tempArray.length; i++) {
+                total += tempArray[i];
+            }
+            return total;
+        }
+
+        // Or:
+        let numTotal2 = (tempArray) => {
+            let total = 0;
+            for (let i = 0; i < tempArray.length; i++) {
+                total += tempArray[i];
+            }
+            return total;
+        }
+
+        // Or:
+        let numTotal3 = tempArray => {
+            let total = 0;
+            for (let i = 0; i < tempArray.length; i++) {
+                total += tempArray[i];
+            }
+            return total;
+        }
+
+
+        let myLuckNumbers = [8, 9, 5, 3, 1, 7];
+        document.write(`<p> Total of "${myLuckNumbers}" is: ${numTotal1(myLuckNumbers)}</p>`);
+        // Total of "8,9,5,3,1,7" is: 33
+
+
+        // No! The following function code will not work/run:
+        (number) => {
+            if (number % 2 == 0) {
+                document.write(`<p>Your number is ${number}, and it is even.</p>`);
+            } else {
+                document.write(`<p>Your number is ${number}, and it is odd.</p>`);
+            }
+        }
+
+        // Yes, This function will run:
+        document.write('Self run function:');
+        ((number) => {
+            console.log("Self Invoked: ", number);
+            document.write(`<p>I will run immediately, but your number is ${number}!</p>`);
+            document.write(`<p>If you check the console window, you will see that I will be called immediately!</p>`);
+        })();
+    </script>
+</body>
+
+</html>
