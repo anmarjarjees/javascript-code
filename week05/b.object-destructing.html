@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Destructing</title>
+</head>
+
+<body>
+    <script>
+        /*
+            Object destructuring is used to assign properties from an object to variables.
+            A property can be unpacked from an object and assigned to a variable 
+            with a different name than the object's property.
+            Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#object_destructuring
+        */
+
+        // Quick recap: Before ES6, we had to access properties one by one:
+        // Let's create an object literal:
+        let employee = {
+            name: 'Alex Chow',
+            title: 'Instructor',
+            dob: '1974-02-05',
+            gender: 'Male',
+            department: 'Continuing Studies',
+            campuses: ['Toronto', 'Markham'],
+            courses: [
+                "HTML and CSS Fundamentals",
+                "Advanced Web Development",
+                "Python Programming",
+                "Introduction to Databases"
+            ],
+            edu: {
+                topic: 'Software Development',
+                level: 'College Certificate',
+                college: 'Centennial College',
+                year: '2018'
+            },
+            contact: {
+                cellPhone: "(416) 123-1234",
+                homePhone: "(905) 123-4321",
+                email: "alexchow@learningjavascript.com"
+            },
+            // Adding the following method to display employee work information:
+            showWorkInfo: function () {
+                // Print/output the employee contact information
+                document.write(`<h3>Employee Name: ${this.name}</h3>`);
+                document.write(`<h4>Job Title: ${this.title}</h4>`);
+                // Getting his "courses" property value (Accessing the "courses" property value):
+                document.write(`<h4>Courses:</h4>`);
+                /*
+                The "courses" property is an array, so we can use the .forEach() method:
+                The forEach() method executes a provided function once for each array element.
+                Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+                */
+                let courseList = "<ul>";
+                console.log(this.courses);
+                this.courses.forEach(function (course) {
+                    courseList += "<li>" + course + "</li>";
+                });
+                courseList += "</ul>";
+                document.write(courseList);
+            }
+        }
+
+        // To access individual values from the object, we use:
+        let fullName = employee.name;
+        let jobTitle = employee.title;
+        let campus1 = employee.campuses[0];
+        let education = employee.edu.level;
+        let subject = employee.edu.topic;
+
+        // Let's start with object destructuring for the simple key/value properties:
+        let { empName, title, department, campuses } = employee;
+
+        document.write(`<p>${empName} is our new ${title}. He is in ${department} department.  This semester, he will be working at ${campuses[0]} campus.</p>`);
+
+        // Destructuring with renaming and default values:
+        let { name: givenName, dob: birthDate, gender, address, hobby = "music" } = employee;
+        // If 'address' doesn't exist in the employee object, it will be undefined, and 'hobby' will default to "music".
+    </script>
+</body>
+
+</html>

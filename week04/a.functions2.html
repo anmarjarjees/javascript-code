@@ -17,27 +17,37 @@
         y will get the value of 7 if no value is being passed
         */
         function add(x = 10, y = 7) {
-            console.log(x + y);
+            return x + y;
+            /* 
+            return:
+            1- return a value from the function to main script
+            2- Terminate/stop my function
+            */
+            // this line below will be ignored
+            console.log("just for testing!");
         }
 
         let total1 = add();
         console.log(total1);
 
-        // Or directly:
-        console.log(add());
-
         let total2 = add(3, 2);
         console.log(total2);
 
-        // Or:
-        console.log(add(3, 2));
+        // Or directly:
+        console.log(add());
 
-        /*
-       An arrow function expression is a compact alternative to a traditional function expression,
-       but is limited and can't be used in all situations.
-    
-       using the "=>"
-       */
+        /* 
+           ECMAScript 6 => 2015 JavaScript 
+        
+           remove "function" and add "=>"
+           
+           Arrow function =>
+           An arrow function expression is a compact alternative to a traditional function expression,
+           but is limited and can't be used in all situations.
+         
+           using the "=>"
+        */
+
         // Task: Create a function to accept any number then output even or odd message based on the number
         // By assigning the function to a variable:
         let testEvenOddTry1 = function (number) {
@@ -52,7 +62,9 @@
 
         // By using arrow function:
         // The new way of ES6 (2015):
-        let testEvenOddTry2 = (number) => {
+        // Notice that are ( ) optional with arrow function if it has ONLY one parameter:
+        // let testEvenOddTry2 = (number) => {
+        let testEvenOddTry2 = number => {
             if (number % 2 == 0) {
                 document.write(`<p>Your number is ${number}, and it is even.</p>`);
             } else {
@@ -63,6 +75,15 @@
         testEvenOddTry2(100);
         testEvenOddTry2(175);
         testEvenOddTry2(135);
+
+        // more examples:
+        let sayHi = () => {
+            console.log("Hi everyone!");
+        }
+
+        // the function block contains only one statement, so we can ignore the { }
+        let sayHello = () => console.log("Hello everyone!");
+
 
         // Creating a function for finding the total of numbers in an array:
         let numTotal1 = function (tempArray) {
@@ -97,6 +118,7 @@
         // Total of "8,9,5,3,1,7" is: 33
 
 
+        // Anonymous (no name) Arrow (=>) Function!!!
         // No! The following function code will not work/run:
         (number) => {
             if (number % 2 == 0) {
@@ -106,7 +128,7 @@
             }
         }
 
-        // Yes, This function will run:
+        // Yes, This function will run automatically :-)
         document.write('Self run function:');
         ((number) => {
             console.log("Self Invoked: ", number);

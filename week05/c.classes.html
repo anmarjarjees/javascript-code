@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes Introduction</title>
+</head>
+
+<body>
+    <script>
+        class Car {
+            constructor(brand, type, description, wheels, owner) {
+                // class fields:
+                this.brand = brand;
+                this.type = type;
+                this.description = description;
+                this.wheels = wheels;
+                this.owner = owner;
+            }
+
+            // method <=> function => it has an action
+            describeCar() {
+                document.write(`${this.owner} has ${this.type}. It's ${this.wheel}-wheel drive. This car is ${this.description}`);
+            }
+        } // end class
+
+        let car1 = new Car();
+        console.log(car1);
+
+        // Our constructor expecting these values with the same order: brand, type, description, wheels, owner
+        let firstCar = new Car("Toyota", "Sedan", "Good condition with 1 year warranty", 4, "Alex Chow");
+
+        console.log(firstCar);
+    </script>
+</body>
+
+</html>

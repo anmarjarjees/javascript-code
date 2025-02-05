@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            name; // Declaring the class property before initializing it (Optional Step but good for readability)
+
+            constructor(name) {
+                this.name = name;
+            }
+
+            greet() {
+                document.write(`<br>Hello ${this.name}!`);
+            }
+        }
+
+        class Member extends Person {
+            constructor(name) {
+                super(name);
+            }
+        }
+
+
+        let user1 = new Member("Kate Wilson");
+        let user2 = new Member("James Dean");
+        user1.greet(); // Hello Kate Wilson!
+        user2.greet(); // Hello James Dean!
+    </script>
+</body>
+
+</html>

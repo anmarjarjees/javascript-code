@@ -22,6 +22,40 @@
         - Each key is followed by a colon : 
         - and its corresponding value
         */
+
+        /* 
+        In JavaScript, we can create an object without a class
+
+        In Java, we create a class (as blueprint) then its object(s):
+
+        Class Student {
+        }
+
+        Student student1 = new Student();
+        Student student2 = new Student();
+        Student student3 = new Student();
+
+        Object Literal => object without a class!
+
+        Please consider the following symbols:
+        - { } => are used to define an object
+        - [ ] => for arrays => arrays of object
+        */
+
+        // Look at the two basic objects below:
+        const bio = {
+            name: "Alex Chow",
+            dob: "1974-07-12",
+            occupation: "Software Developer"
+        };
+
+        const contact = {
+            phone: "416-123-1234",
+            email: "alexchow@InLoveWithJavaScript.com",
+            address: "123 Yonge St. Toronto-Ontario Q1W2E3"
+        };
+
+        // More Advanced Example:
         let person = {
             // Keys => properties (fields)
             firstName: "Alex",
@@ -41,7 +75,22 @@
                 we need to use a JS keyword "this" (it's better than using the object name itself)
                 so the keyword "this" is used when we want to refer to information within the object
                 */
+                // document.write("Full Name: " + firstName+ " " + lastName);
+                /* 
+                To recap: 
+                ReferenceError: firstName is not defined
+                same error for lastName and age
+            
+                We cannot access the object properties without the keyword "this"
+                The correct answer:
+                */
                 document.write("Full Name: " + this.firstName);
+
+
+                // Or using "Template Literal":
+                document.write(`${this.firstName} ${this.lastName} is ${this.age} years old`);
+                // return true;
+                // return 100;
             }
         } // person
 
@@ -51,6 +100,12 @@
         document.write("<br>The second course is: " + person.courses[1]);
 
         person.getInfo();
+
+        /* 
+        - Simple JS Object Literal
+        - JSON => JavaScript Object Notation !!!
+        */
+
 
         // Another Example:
         let country = {
@@ -96,6 +151,21 @@
         // Task: Alex White lives in Toronto
         document.write(`<br>${employee.firstName} ${employee.lastName} lives in ${employee.address.city}`);
 
+        /* 
+        Another way to create an object in JS is by using new Constructor():
+        */
+        const book = new Object({
+            title: "Core JAVA Twelfth Edition",
+            author: "Cay Horstman",
+            publisher: "Oracle",
+            released: 2022,
+            getBookInfo: function () {
+                console.log(`Textbook: ${this.title} by ${this.author}, was released in ${this.released}`);
+            }
+        });
+
+
+
         // Creating an array of objects:
         let courses = [
             {
@@ -129,16 +199,55 @@
         ];
 
         // looping through an array:
+        // loop to print the object/arrays:
         for (let index = 0; index < courses.length; index++) {
-            console.log(courses[index].name);
-            document.write("<br>" + courses[index].name)
-
+            const element = courses[index];
+            // element => object => key: value
+            document.write(element); // [object Object]
+            console.log(element);
         }
 
-        for (let course of courses) {
-            // output the entire object:
-            document.write("<br>" + course.name);
+        for (let index = 0; index < courses.length; index++) {
+            const element = courses[index];
+            document.write("<br><br>Section: " + element.section);
+            document.write("<br>Subject: " + element.name);
+            document.write("<br>" + element.semester);
+            document.write("<br>" + element.day);
+            // Ternary Operator:
+            let mode = (element.isOnline) ? "Online" : "In-person"
+            document.write("<br>Delivery Mode: " + mode);
         }
+
+
+        document.write("<hr>");
+
+        for (const element of courses) {
+            document.write("<br><br>Section: " + element.section);
+            document.write("<br>Subject: " + element.name);
+            document.write("<br>" + element.semester);
+            document.write("<br>" + element.day);
+            // Ternary Operator:
+            let mode = (element.isOnline) ? "Online" : "In-person"
+            document.write("<br>Delivery Mode: " + mode);
+        }
+
+        /* 
+        Remember this structure:
+        element => {
+            
+        }
+
+        It is a function!
+        - no name => anonymous function
+        - no keyword function => arrow function using arrow function
+
+        we are passing a function as an argument to another function/method
+        example: 
+        The method forEach() accepting a function as an argument
+
+        The function that we pass as an argument has label: 
+        "Callback" function => cb 
+        */
 
         // arrow function
         courses.forEach((element) => {
@@ -150,10 +259,51 @@
             document.write("<br>" + element.name);
         });
 
+        document.write("<hr>");
+        courses.forEach(element => {
+            document.write("<br><br>Section: " + element.section);
+            document.write("<br>Subject: " + element.name);
+            document.write("<br>" + element.semester);
+            document.write("<br>" + element.day);
+            // Ternary Operator:
+            let mode = (element.isOnline) ? "Online" : "In-person"
+            document.write("<br>Delivery Mode: " + mode);
+        });
+
+
         // anonymous function
         courses.forEach(function (course) {
             document.write("<br>" + course.name);
         });
+
+        //  Q) What we use to loop through an object in JavaScript?
+        /*
+        For...in Syntax:
+        for (const variable in object) {
+            statement
+        }
+         Syntax Example:
+        for (const property in object) {
+             console.log(`${property}: ${object[property]}`);
+        };
+        */
+        document.write("<ul>");
+        for (const key in bio) {
+            document.write(`<li>${key}: ${bio[key]}</li>`);
+            document.write("<li>" + key + "</li>");
+        }
+        document.write("</ul>");
+
+        for (const key in courses) {
+            const element = courses[key];
+            document.write("<br><br>Section: " + element.section);
+            document.write("<br>Subject: " + element.name);
+            document.write("<br>" + element.semester);
+            document.write("<br>" + element.day);
+            // Ternary Operator:
+            let mode = (element.isOnline) ? "Online" : "In-person"
+            document.write("<br>Delivery Mode: " + mode);
+        }
     </script>
 </body>
 

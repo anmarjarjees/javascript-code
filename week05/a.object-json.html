@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+
+<body>
+    <script>
+        // Literal JavaScript Object vs JSON:
+
+        // To Review: Below is just a pure literal JS object named "objCar"
+        let objCar = {
+            // we and add the object members:
+            // - Properties: variables declared inside the object
+            // - Methods: functions declared inside the object
+            type: "Honda",
+            model: 2010,
+            color: "white",
+            describe: function () {
+                console.log(`Car Type: ${this.type} - Model: ${this.model} - Color: ${this.color}`);
+            }
+        }; // end car object
+
+        // calling properties/methods of "objCar":
+        objCar.describe();
+
+        objCar.owner = "Sam";
+
+
+        // Reviewing Some Loop Structures :-)
+        let index = 0;
+        document.write("Our string is 'ECMAScript6'. <ul>");
+        // task: write a loop to print all the letters in 'ECMAScript6'
+        let es6 = 'ECMAScript6';
+        for (const char in es6) {
+            document.write(`<br>${char}`);
+        }
+
+        for (let i = 0; i < es6.length; i++) {
+            document.write(`<br>${es6[i]}`);
+        }
+
+        // new one :-) 2015
+        for (let letter of es6) {
+            document.write(`<br>${letter}`);
+        }
+
+
+        // Below converting JS Object above to a valid JSON Object
+        // JSON Object Syntax:
+        // we are saving the JSON into a new variable named "jsonCar"
+        // Notice that JSON cannot have functions
+        let jsonCar = {
+            "type": "Honda",
+            "model": 2010,
+            "color": "white"
+        }; // end car json
+
+        /*
+        Tip:
+        To make sure that we have the valid (correct) JSON object,
+        We can write the content of the object in a separate JSON file => .json :-)
+        */
+
+        /*
+        The same as we were able to create an array of simple JS objects in the previous example,
+        we can also create an array of JSON objects below:
+        - theCars array [ ] has 4 elements
+        - Each element is a JSON object { "property": value }
+        - The first element (JSON object) has the index of 0
+        */
+        let theCars = [
+            {
+                "type": "Honda",
+                "model": 2019,
+                "color": "white"
+            },
+            {
+                "type": "Kia",
+                "model": 2012,
+                "color": "silver"
+            },
+            {
+                "type": "Fiat",
+                "model": 2010,
+                "color": "blue"
+            },
+            {
+                "type": "Volvo",
+                "model": 2012,
+                "color": "red"
+            }
+        ];
+
+
+        console.log(theCars); // output the entire array of JSON objects
+        console.log(typeof (theCars)); // object
+    </script>
+</body>
+
+</html>

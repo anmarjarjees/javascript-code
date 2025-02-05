@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getters and Setters</title>
+</head>
+
+<body>
+    <script>
+        class Rectangle {
+            /*
+                The constructor method is a special method 
+                for creating and initializing an object created with a class.
+                passing h for height and w for width
+            */
+            constructor(h, w) {
+                this.height = h;
+                this.width = w;
+            }
+
+            calcArea() {
+                return this.height * this.width;
+            }
+
+            get getHeight() {
+                return this.height;
+            }
+
+            set setHeight(h) {
+                this.height = h;
+            }
+            set setWidth(w) {
+                this.width = w;
+            }
+        }
+
+        // creating a new instance:
+        const rec1 = new Rectangle(10, 20);
+        // Since we can access calcArea() so we can use it:
+        document.write(`<p>The area of the first rectangle is ${rec1.calcArea()}</p>`);
+        // The area of the first rectangle is 200
+
+        // Override the rectangle properties values for width and height:
+        rec1.setHeight = 12;
+        rec1.setWidth = 7;
+        document.write(`<p>The new area of the first rectangle after changing its width and height is ${rec1.calcArea()}</p>`);
+    </script>
+</body>
+
+</html>
