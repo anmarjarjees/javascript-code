@@ -11,23 +11,24 @@
     <script>
         // Literal JavaScript Object vs JSON:
 
-        // To Review: Below is just a pure literal JS object named "objCar"
-        let objCar = {
+        // To Review: Below is just a pure literal JS object named "myCarObj"
+        let myCarObj = {
             // we and add the object members:
             // - Properties: variables declared inside the object
             // - Methods: functions declared inside the object
             type: "Honda",
             model: 2010,
             color: "white",
+            // method => function inside a class:
             describe: function () {
                 console.log(`Car Type: ${this.type} - Model: ${this.model} - Color: ${this.color}`);
             }
         }; // end car object
 
-        // calling properties/methods of "objCar":
-        objCar.describe();
+        // calling properties/methods of "myCarObj":
+        myCarObj.describe();
 
-        objCar.owner = "Sam";
+        myCarObj.owner = "Sam";
 
 
         // Reviewing Some Loop Structures :-)
@@ -48,12 +49,12 @@
             document.write(`<br>${letter}`);
         }
 
-
+        // JSON => JavaScript Object "Notation" ???
         // Below converting JS Object above to a valid JSON Object
         // JSON Object Syntax:
-        // we are saving the JSON into a new variable named "jsonCar"
+        // we are saving the JSON into a new variable named "myCarJSON"
         // Notice that JSON cannot have functions
-        let jsonCar = {
+        let myCarJSON = {
             "type": "Honda",
             "model": 2010,
             "color": "white"
@@ -63,6 +64,12 @@
         Tip:
         To make sure that we have the valid (correct) JSON object,
         We can write the content of the object in a separate JSON file => .json :-)
+        */
+
+        /* 
+        a local variable "myCarJSON" contains JSON object,
+        a separate file that contains only JSON object
+        Check the file "car.json"
         */
 
         /*
@@ -98,6 +105,8 @@
 
         console.log(theCars); // output the entire array of JSON objects
         console.log(typeof (theCars)); // object
+
+        // Check the file "cars.json"
     </script>
 </body>
 

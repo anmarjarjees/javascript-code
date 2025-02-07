@@ -1,0 +1,13 @@
+{
+    "type": "Honda",
+    "model": 2010,
+    "color": "white",
+    "isUsed": true,
+    "owner_name": "Alex Chow",
+    "address": {
+        "street": "123 Yonge St",
+        "city": "Toronto",
+        "province": "On",
+        "postal_code": "1A2 3D4"
+    }
+}

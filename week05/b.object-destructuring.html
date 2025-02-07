@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Object Destructing</title>
+    <title>Object Destructuring</title>
 </head>
 
 <body>
@@ -19,6 +19,23 @@
         // Quick recap: Before ES6, we had to access properties one by one:
         // Let's create an object literal:
         let employee = {
+            name: 'Alex Chow',
+            title: 'Instructor',
+            dob: '1974-02-05',
+            gender: 'Male',
+            department: 'Continuing Studies',
+            campuses: ['Toronto', 'Markham'],
+            courses: [
+                "HTML and CSS Fundamentals",
+                "Advanced Web Development",
+                "Python Programming",
+                "Introduction to Databases"
+            ]
+        }
+
+        // More Advanced Object with Properties and Methods:
+        // employeeAdv for Advanced Employee Object Example :-)
+        let employeeAdv = {
             name: 'Alex Chow',
             title: 'Instructor',
             dob: '1974-02-05',
@@ -64,6 +81,13 @@
             }
         }
 
+        /* 
+        Before ES6:
+        task: creating these variables with values from the object:
+        - fullName
+        - gender
+        - jobTitle
+        */
         // To access individual values from the object, we use:
         let fullName = employee.name;
         let jobTitle = employee.title;
@@ -71,6 +95,9 @@
         let education = employee.edu.level;
         let subject = employee.edu.topic;
 
+        // ES6: 
+        // () for methods/function - [] for arrays - {} for objects
+        // same names exactly:
         // Let's start with object destructuring for the simple key/value properties:
         let { empName, title, department, campuses } = employee;
 
