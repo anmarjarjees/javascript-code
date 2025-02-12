@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model - DOM 1</title>
+    <!-- Internal Styles -->
+    <style>
+        /* Custom classes to apply themes: blue-theme and red-theme */
+        /*
+        These classes will be applied dynamically via JavaScript using DOM :-).
+        We will use JavaScript to toggle these classes based on user interaction.
+        */
+        .blue-theme {
+            background-color: #e6f2ff;
+            border: 2px solid #00264d;
+            color: darkblue;
+        }
+
+        .red-theme {
+            background-color: #ffebe6;
+            border: 2px solid #661400;
+            color: darkred;
+        }
+
+        /* CSS Review:
+        These two properties (font-style and font-weight) are shared by both themes,
+        so we can write them in a single rule for cleaner code.
+        */
+        .blue-theme,
+        .red-theme {
+            font-style: italic;
+            font-weight: 700;
+            /* 700 => bold */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header class="main">
+            <h1 id="head1">Document Object Model - <span>DOM</span></h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="content">
+            <h2 id="sub-title">Working with DOM!</h2>
+            <p id="first">Here is my first paragraph</p>
+            <p>Here is my second paragraph</p>
+            <!-- 
+            DOM Event Handling:
+            *******************
+            Event handling is typically considered part of the DOM rather than the BOM, 
+            even if they are triggered and managed within the window environment
+
+            The "onclick" event handler 
+            is used to trigger actions when the user clicks on this element.
+            Can be added as:
+            1- an HTML attribute
+            2- a method attached to getElementById()
+
+            Notice we can also add events using the method "addEventListener" (covered later...)
+            -->
+            <p onclick="alert('You clicked this paragraph!');">Don't click me!</p>
+            <!--
+                The following <p> element with <span> is important for your second assignment.
+                Be sure to access this element via JavaScript.
+             -->
+            <p>The result is: <span id="result"></span></p>
+
+            <div id="final"></div>
+            <!--
+            Important Note on Separation of Concerns (SoC):
+            ***********************************************
+            The "onclick" attribute used in the buttons below is an older inline way 
+            of adding event listeners directly in the HTML.
+
+            While this method works, it's not the best practice for maintainable and scalable code. 
+            Modern JavaScript encourages separating structure (HTML), style (CSS), and behavior (JavaScript). 
+
+            In the future, we'll explore how to use the "addEventListener()" method, 
+            which keeps JavaScript logic separate from HTML. 
+
+            This approach:
+            - provides better flexibility
+            - makes the code cleaner
+            - makes it easier to manage and modify event handling
+
+            We'll revisit event listeners later.
+            -->
+            <!-- Buttons to trigger theme change -->
+            <button onclick="changeColor(1)">Blue Theme</button>
+            <button onclick="changeColor(2)">Red Theme</button>>
+        </section>
+        <footer class="main">
+            Designed by me...
+        </footer>
+    </div>
+
+    <script>
+        // Logging the entire document object and the title
+        console.log(document);
+        console.log(document.title);
+
+        // This event handler listens for a click event on a button
+        document.getElementById("first").onclick = function () {
+            alert("So you clicked the first paragraph!");
+        };
+
+        // Accessing the element with id 'head1' and modifying it
+        let head1Element = document.getElementById("head1");
+        console.log(head1Element);  // Logs the element to the console
+        head1Element.innerText = "Learning about DOM!";  // Change the text content
+
+        // Updating content of the 'final' div
+        const finalDiv = document.getElementById("final");
+        finalDiv.innerHTML = "<p>Here is my final div element</p>"; // Using innerHTML for HTML content
+        /* 
+        In CSS, properties like background-color, font-weight, etc., are written in camelCase in JavaScript.
+        For example:
+            background-color: #897856; // blue
+            border-bottom: 1px solid red;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: red;
+            font: arial;
+
+        The same code/properties as we have in CSS above, 
+        is written below using DOM syntax (camelCase):
+            backgroundColor = any value;
+            borderBottom = "1px solid red";
+            fontWeight = "bold";
+            textTransform= "uppercase";
+            color = "red";
+            font = "arial";
+        */
+
+        // Example: Modifying background color dynamically
+        // head1Element.style.backgroundColor = "green"; 
+
+        // Function to change the theme of the page based on the selected color
+        function changeColor(color) {
+            const wrapperDiv = document.getElementById("wrapper");
+
+            if (color === 1) {
+                // Change to blue theme by adding the 'blue-theme' class to the wrapper
+                wrapperDiv.className = "blue-theme";
+            } else {
+                // Change to red theme by adding the 'red-theme' class to the wrapper
+                wrapperDiv.className = "red-theme";
+            }
+        }
+    </script>
+</body>
+
+</html>

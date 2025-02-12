@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model - DOM 2</title>
+    <style>
+        /* Styling buttons and input fields of type 'button' and 'submit' */
+        /*
+        This CSS targets:
+        - The input fields with type="button" and type="submit"
+        - The button elements
+        These elements are styled to have rounded corners, custom background, text color, cursor pointer, and padding for better user interaction.
+        */
+        input[type="button"],
+        input[type="submit"],
+        button {
+            border-radius: 50%;
+            /* Rounded corners */
+            background-color: #d4b386;
+            /* Light brown background */
+            color: #471414;
+            /* Dark red text color */
+            cursor: pointer;
+            /* Pointer cursor on hover */
+            padding: 5px;
+            /* Padding around the button */
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+    Note: In this example, we are using inline event handlers (e.g., onclick) to trigger JavaScript functions.
+    While this approach works, it's considered an older method and not the best practice for modern web development.
+
+    The reason it's not recommended is that it mixes HTML structure with JavaScript behavior, violating the principle of Separation of Concerns (SoC).
+    - HTML should handle the structure and content of the page.
+    - CSS should manage the presentation (styling).
+    - JavaScript should focus solely on the behavior (interactivity).
+
+    Later, we will learn how to improve this by using Event Listeners, which will separate concerns and make the code more maintainable and scalable.
+    -->
+
+    <!-- 
+    Note: In this example, we are focusing on the Separation of Concerns (SoC) principle.
+    - The HTML is responsible for the structure of the page.
+    - The CSS handles the presentation and styling.
+    - The JavaScript manages the behavior of the page (events, interactions, etc.).
+
+    By using JavaScript's "Event Listeners" instead of inline event attributes (like onclick),
+    we keep the concerns separate, making the code cleaner, more maintainable, and scalable.
+    
+    Later, we will explore more about how to fully implement SoC by improving this approach.
+    -->
+    <div class="main-content">
+        <!--
+            NOTE: This file is essential for the second assignment.
+            It demonstrates basic event handling and user input processing in JavaScript.
+        -->
+        <h1 id="first">Simple Calculations</h1>
+        <form id="main-form">
+            <label for="number">Enter any numeric value:</label>
+            <input type="text" name="number" id="number" size="5" maxlength="10">
+            <input type="button" value="submit1" onclick="checkNumber1();">
+            <input type="submit" value="submit2" onclick="return checkNumber2();">
+            <input type="submit" value="submit3" onclick="checkNumber3(); return false; ">
+        </form>
+        <p>Your number is: <span id="result"></span></p>
+    </div>
+
+    <script>
+        /*
+        checkNumber1: ** is triggered by the first "Check" button **
+        This function checks if the input number is even or odd.      
+        */
+        function checkNumber1() {
+            let userNumber = document.getElementById("number").value;
+
+            // Ensure the input is a number before proceeding
+            if (isNaN(userNumber)) {
+                document.getElementById("result").innerText = "Please enter a valid number.";
+                return;
+            }
+
+            // Two approaches/ways:
+
+            // Way#1: Classical if/else block
+            let numType;
+            if (userNumber % 2 == 0) {
+                numType = "Even number";
+            } else {
+                numType = "Odd number";
+            }
+
+            // Way#2: Ternary Operator as shown in the examples below in the two other function :-)
+
+            // Output the result to the page 
+            document.getElementById("result").innerText = numType;
+        } // checkNumber1
+
+        /*
+        checkNumber2: ** is triggered by the second submit button **
+        Similar to checkNumber1, but uses a ternary operator for a shorter implementation.
+        We also return false to prevent the form from submitting.
+        */
+        function checkNumber2() {
+            let userNumber = document.getElementById("number").value;
+
+            // Ensure the input is a number before proceeding
+            if (isNaN(userNumber)) {
+                document.getElementById("result").innerText = "Please enter a valid number.";
+                return;
+            }
+
+            let numType = (userNumber % 2 == 0) ? "Even number" : "Odd number";
+            // Output the result to the page
+            document.getElementById("result").innerText = numType;
+
+            // Prevent form submission (page reload)
+            return false;
+        }
+
+        /*
+        checkNumber3: ** is triggered by the third submit button **
+        This function also checks if the input number is even or odd.
+        Notice that it doesn't prevents the page reload, but we added "return false;" on calling
+        This method is similar to checkNumber2 but is structured differently.
+        */
+        function checkNumber3() {
+            let userNumber = document.getElementById("number").value;
+
+            // Ensure the input is a number before proceeding
+            if (isNaN(userNumber)) {
+                document.getElementById("result").innerText = "Please enter a valid number.";
+                return false;
+            }
+
+            let numType = (userNumber % 2 == 0) ? "Even number" : "Odd number";
+
+            // Output the result to the page
+            document.getElementById("result").innerText = numType;
+        }
+    </script>
+</body>
+
+</html>

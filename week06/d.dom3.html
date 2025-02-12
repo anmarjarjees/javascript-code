@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model - DOM 3</title>
+    <style>
+        /* Styling buttons and input fields of type 'button' and 'submit' */
+        input[type="button"],
+        input[type="submit"],
+        button {
+            border-radius: 30%;
+            background-color: #d4b386;
+            color: #471414;
+            cursor: pointer;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-content">
+        <h1 id="first">Simple Calculations</h1>
+        <form id="main-form">
+            <label for="number">Enter any numeric value:</label>
+            <input type="text" name="number" id="number" size="5" maxlength="10">
+            <input type="button" id="submit1" value="Check (Even/Odd)">
+            <input type="submit" id="submit2" value="Check (Even/Odd) with Return">
+            <input type="submit" id="submit3" value="Check (Even/Odd) with No Page Reload">
+        </form>
+        <p>Your number is: <span id="result"></span></p>
+    </div>
+
+    <script>
+        /* 
+        The following lines demonstrate the usage of "addEventListener", 
+        a modern and recommended way to add event handlers to elements. 
+
+        Why use "addEventListener"?
+        - "addEventListener" allows us to attach multiple event listeners to the same element, 
+        without overriding each other.
+        - It keeps JavaScript code separate from HTML, 
+        which promotes the "Separation of Concerns" (SoC) principle.
+        - It provides more flexibility in handling events,
+        (Example => we can capture events during different phases of event propagation, etc.).
+
+        In contrast to inline "onclick" in HTML, 
+        "addEventListener" improves readability and maintainability by keeping JavaScript behavior in one place.
+        */
+
+        // Adding event listeners to buttons, attaching functions to be called on click.
+        document.getElementById("submit1").addEventListener("click", checkNumber1);
+        document.getElementById("submit2").addEventListener("click", checkNumber2);
+        document.getElementById("submit3").addEventListener("click", checkNumber3);
+
+        /*
+        Functions to check if the input number is even or odd. 
+        These functions are triggered when the user clicks one of the buttons.
+        */
+
+        // Function for checking if the number is even or odd 
+        // (First Button)
+        function checkNumber1() {
+            let userNumber = document.getElementById("number").value;
+
+            // Check if the input is a valid number
+            if (isNaN(userNumber) || userNumber.trim() === "") {
+                document.getElementById("result").innerText = "Please enter a valid number.";
+                return;  // Exit function early if the input is invalid
+            }
+
+            // Perform even/odd check
+            let numType = (userNumber % 2 === 0) ? "Even number" : "Odd number";
+            document.getElementById("result").innerText = numType;
+        }
+
+        // Function for checking if the number is even or odd
+        // (Second Button with form submission prevention)
+        function checkNumber2() {
+            let userNumber = document.getElementById("number").value;
+
+            // Check if the input is a valid number
+            if (isNaN(userNumber) || userNumber.trim() === "") {
+                document.getElementById("result").innerText = "Please enter a valid number.";
+                return false;  // Prevent form submission
+            }
+
+            // Perform even/odd check
+            let numType = (userNumber % 2 === 0) ? "Even number" : "Odd number";
+            document.getElementById("result").innerText = numType;
+            return false; // Prevent form submission after checking
+        }
+
+        // Function for checking if the number is even or odd
+        // (Third Button with no page reload)
+        function checkNumber3() {
+            let userNumber = document.getElementById("number").value;
+
+            // Check if the input is a valid number
+            if (isNaN(userNumber) || userNumber.trim() === "") {
+                document.getElementById("result").innerText = "Please enter a valid number.";
+                return;  // Exit function early if the input is invalid
+            }
+
+            // Perform even/odd check
+            let numType = (userNumber % 2 === 0) ? "Even number" : "Odd number";
+            document.getElementById("result").innerText = numType;
+        }
+    </script>
+</body>
+
+</html>

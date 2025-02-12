@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>temperature Converter with Validation</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Task (Very Important for your next lab):
+
+        Write/Create two functions:
+
+        Function 1 => to convert Fahrenheit to Celsius.
+        Formula Example: (12°F − 32) × 5/9 = -11.11°C
+        the formula in JS (Programming): value in C = (value in F - 32) * 5/9
+
+        Function 2 => to convert Celsius to Fahrenheit.
+        Formula Example: (12°C × 9/5) + 32 = 53.6°F
+        the formula in JS (Programming): value in F = (value in C * 9/5) + 32
+
+        Notice that these two functions will be called/executed inside the switch statement
+        */
+
+        /*
+        Task 1: Ask the user to input his choice: F to C or C to F:
+        prompt() => will return the value as a string data type
+
+        Ask (prompt) the user whether they want to convert F to C or C to F
+        they can:
+        > input 1 for converting Fahrenheit to Celsius
+        > input 2 for converting Celsius to Fahrenheit
+
+        If the user input any other value => we need to keep asking the user till they enter either 1 or 2
+
+        I used \n for a new line
+        */
+
+        /*
+        We can use either while or do while
+        let's use do while we can have our question to be asked first
+        we want to run our question at least one time
+        then we can validate (Yes, we can still use while loop if you like)
+
+        1) While loop:
+        while (check the user input) {
+        ask the user to input his/her value
+        }
+
+        2) Do while loop:
+        do {
+        ask the user to input his/her value
+        } while (check the user input)
+        */
+
+        // the do/while loop will run a least one time
+        // We need to declare our variable outside the do loop/ while loop
+        let userChoice; // Or var userChoice; => this variable is "undefined"
+        do {
+            userChoice = parseInt(prompt("- Input 1 for converting Fahrenheit to Celsius\n- Input 2 for converting Celsius to Fahrenheit\n- Input 3 to exit"));
+
+            // for testing:
+            console.log("Your choice is: " + userChoice);
+
+            // We need to stop our do/while when the condition became false
+            // Or we need to keep looping if the user's choice is not 1 AND is not 2 AND is not 3
+
+            // if the user input 1 => the loop will stop!
+            // 1 != 1 False => False AND True => False => the loop condition is false => the loop will stop
+
+            // if the user input 2 => the loop will stop!
+            // 2 != 2 False => True AND False => False => the loop condition is false => the loop will stop
+
+            // if the user input 3 => stop the application
+
+            // Notice because we used parseInt: no need to use the double quotes:
+            // (userChoice != "1" && userChoice != "2")
+        } while (userChoice != 1 && userChoice != 2 && userChoice != 3)
+
+        /*
+        The true/false table:
+
+        true AND true => true
+        true AND false => false
+        false AND false => false
+        */
+
+        // for testing:
+        console.log(userChoice);
+
+        if (userChoice != 3) {
+            // all the major code/logic goes here:
+            // Task 2: Ask (prompt) the user to input their value
+            // let's name it "temp" for temperature
+            var temp = temp = parseFloat(prompt("Enter your temperature value:"));
+
+            // for testing:
+            // console.log(temp); // check the value of temp
+
+
+            // 1. creating two functions:
+            // NOTE: It's better to create our function in the earlier lines before calling them
+
+            // Function#1: convert F to C => accepts a numeric value in F ==> returns the value in C
+            // You can name it "convertFahToCel()" [camelCase]
+            // This function should receive the Fah Value
+            // do the required calculation using the right formula
+            // return the result in Cel value
+            // so this function does need one "parameter" to represent the Fah Temp Value => fTemp
+            function convertFahToCel(fTemp) {
+                // For testing:
+                // alert("convert F to C");
+                // Testing if we can get the user's temp value
+                // alert(fTemp + "F to C");
+
+                // the formula: value in C = (value in F - 32) * 5/9
+                // The variable "tempInCel" has been declared inside this function (var or let)
+                // which means it can be accessed within this function so it has a "local scope" (for later)
+                let tempInCel = (fTemp - 32) * 5 / 9;
+
+                // for testing:
+                // console.log(tempInCel);
+
+                // This function should not print the value!!!
+                // document.write("The value in Cel is: " + tempInCel);
+                // This function should only "return" the value
+                return tempInCel;
+            }
+
+            // Function#2. convert C to F => accepts a numeric value in C ==> returns the value in F
+            // You can name it "convertCelToFah()" [camelCase]
+            // the same idea:
+            function convertCelToFah(cTemp) {
+                // For testing:
+                // alert("convert C to F");
+                // Testing if we can get the user's temp value
+                // alert(cTemp + "C to F");
+
+                // the formula: value in F = (value in C * 9/5) + 32
+                // Yes, we can create a variable to receive the formula result
+                // let tempInFeb = (cTemp * 9 / 5) + 32;
+
+                // for testing:
+                // console.log(tempInFeb);
+
+                // for learning purpose:
+                // we can do it in one step: formula + return the result:
+                return (cTemp * 9 / 5) + 32;
+            }
+
+            // Task 3: Switch statement with two cases:
+            /*
+            case 1: call our function to convert F to C
+            case 2: call our function to convert C to F
+            default: output a warning message* (we might needed if there is no validation)
+            */
+
+            var result;
+            switch (userChoice) {
+                /*
+                Since I used parseInt() to convert the user input:
+                - from "1" as a string to 1 as numeric data type
+                - from "2" as a string to 2 as numeric data type
+    
+                So we have to use:
+                - case 1 instead of case "1"
+                - case 2 instead of case "2"
+                */
+                case 1:
+                    // for testing:
+                    // console.log("Convert your temperature " + temp + " F to C");
+                    // case 1: call our function to convert F to C:
+
+                    // Yes, we can write our full code for converting F to C here,
+                    // But we need to learn how to work with function
+                    // so we need to have our function already created above to be called here
+                    result = convertFahToCel(temp);
+                    document.write("<p> The Cel temp of " + temp + "F is: " + result + "</p>");
+                    break;
+
+                case 2:
+                    // for testing:
+                    // console.log("Convert your temperature " + temp + " C to F");
+                    // case 2: call our function to convert C to F:
+                    result = convertCelToFah(temp);
+                    document.write("<p> The Feh temp of " + temp + "C is: " + result + "</p>");
+                    break;
+
+                // The default statement will work if "userChoice" is neither "1" nor "2"
+                // But remember that there is no way that the user can input other values and continue
+                // Because we used do while for keep asking the user till they input either 1 or 2
+                // so this default block will never run!
+                default:
+                    // for testing:
+                    console.log("Sorry, Invalid Choice Input!");
+            } // end switch
+        } // end main if
+    </script>
+</body>
+
+</html>

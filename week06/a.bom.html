@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Object Model (BOM) Basics</title>
+</head>
+
+<body>
+    <script>
+        /*
+        ** Introduction to the Browser Object Model (BOM) **
+
+        Link: https://www.w3schools.com/Js/js_window.asp
+        Link: https://developer.mozilla.org/en-US/docs/Web/API/Window
+
+
+        The Browser Object Model (BOM):
+        - a collection of objects that the browser provides
+        - allowing us to interact with the browser window and the browser environment itself
+        - With BOM, we can control various aspects of the web browser, such as:
+            > The browser window
+            > The location of the current page
+            > The browser's history and more!
+
+        In JavaScript, we commonly use the "window" object as our starting point for interacting 
+        with the BOM. It represents the browser window that contains the current webpage.
+
+        Some key methods of the BOM include (we already practiced them):
+        - "alert()" 
+        - "prompt()"
+        - "confirm()"
+        - "document.write()"
+
+        NOTE: Used to directly write content to the document but it's not recommended to be used in modern practice.
+        */
+
+        // Example 1: Alert message (basic popup message to the user)
+        alert("Learning about BOM!");
+        
+        // Example 2: Another way of calling alert using the 'window' object (same as above)
+        window.alert("BOM: Browser Object Model");
+
+        // Example 3: Prompt for user input (this will create a popup asking the user for their name)
+        var userName = window.prompt("What is your name?");
+        console.log("User entered:", userName); // output: the entered name to the console
+
+        // Example 4: Using the confirm method (asks for confirmation with Yes/No)
+        var userConfirmed = window.confirm("Do you want to leave?");
+        console.log("User confirmed:", userConfirmed); // output: true if Yes, false if No
+
+        // Example 5: Writing directly to the HTML document (note: this overwrites content on the page)
+        window.document.write("<h2>Welcome to the Browser Object Model, " + userName + "!</h2>");
+
+        /*
+        ** Understanding BOM's Window Object **
+        
+        The 'window' object is the global object in the browser environment, 
+        meaning it represents
+        the entire browser window. We can use it to:
+        - Access browser properties (like screen size, history, etc.)
+        - Control the browser window (open new windows, navigate, reload, etc.)
+        */
+
+        // Example 6: Navigating to a different URL
+        window.location.href = "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting"; // This will redirect the user to a new page.
+        // https://developer.mozilla.org/en-US/docs/Web/API/Location
+
+        // Example 7: Opening a new browser window/tab
+        window.open("https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting", "_blank"); // Open the website in a new tab.
+
+        // Example 8: Reloading the current page
+        // window.location.reload(); // Uncomment to reload the page
+
+        /*
+        ** Additional BOM Features **
+        
+        Here are a couple of other BOM objects you can use:
+
+        - The 'navigator' object provides information about the user's browser.
+        - The 'screen' object provides information about the user's screen size.
+
+        Link: https://developer.mozilla.org/en-US/docs/Web/API/Navigator
+        */
+
+        // Example 9: Displaying the browser's language
+        console.log("Browser language: " + navigator.language); // Shows the browser's default language
+
+        /*
+        ** Bonus: Handling the History of the Browser **
+        
+        The BOM also allows us to interact with the browser's history, which means we can:
+        - Move back and forth in the history stack
+        - Retrieve information about previously visited pages
+
+        Link: https://developer.mozilla.org/en-US/docs/Web/API/History
+        */
+
+        // Example 10: Going back to the previous page in history
+        // window.history.back(); // Uncomment to go back in history (if possible)
+    </script>
+</body>
+
+</html>
