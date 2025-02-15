@@ -16,7 +16,7 @@
         input[type="button"],
         input[type="submit"],
         button {
-            border-radius: 50%;
+            border-radius: 30%;
             /* Rounded corners */
             background-color: #d4b386;
             /* Light brown background */
@@ -24,7 +24,7 @@
             /* Dark red text color */
             cursor: pointer;
             /* Pointer cursor on hover */
-            padding: 5px;
+            padding: 10px;
             /* Padding around the button */
         }
     </style>
@@ -63,10 +63,31 @@
         <form id="main-form">
             <label for="number">Enter any numeric value:</label>
             <input type="text" name="number" id="number" size="5" maxlength="10">
+            <!-- Remember that using onClick HTML Attribute is not considered to be the best coding practice -->
+            <!-- with JS => we use type="button" "recommended" -->
             <input type="button" value="submit1" onclick="checkNumber1();">
+            <!-- 
+                NOTE:
+                It's not recommended to use this way (type="submit")
+                usually with PHP => type="submit" 
+                this will submit the form to the server-side to be handled by PHP
+                the submit method => causing the page to refresh (reloaded)
+            -->
             <input type="submit" value="submit2" onclick="return checkNumber2();">
             <input type="submit" value="submit3" onclick="checkNumber3(); return false; ">
+
+            <!-- 
+            Below is a better clean approach (No JS in between HTML).
+            Please consider this final example (function):
+            -->
+            <input type="button" id="chkNumBtn" value="Check Number">
+
         </form>
+        <!-- 
+        Block-Level elements and Inline elements:
+        - div => Block-Level Element
+        - span => inline Element 
+        -->
         <p>Your number is: <span id="result"></span></p>
     </div>
 
@@ -78,8 +99,8 @@
         function checkNumber1() {
             let userNumber = document.getElementById("number").value;
 
-            // Ensure the input is a number before proceeding
-            if (isNaN(userNumber)) {
+            // Check if the input is empty or not a valid number
+            if (userNumber === "" || isNaN(userNumber)) {
                 document.getElementById("result").innerText = "Please enter a valid number.";
                 return;
             }
@@ -108,8 +129,8 @@
         function checkNumber2() {
             let userNumber = document.getElementById("number").value;
 
-            // Ensure the input is a number before proceeding
-            if (isNaN(userNumber)) {
+            // Check if the input is empty or not a valid number
+            if (userNumber === "" || isNaN(userNumber)) {
                 document.getElementById("result").innerText = "Please enter a valid number.";
                 return;
             }
@@ -131,8 +152,8 @@
         function checkNumber3() {
             let userNumber = document.getElementById("number").value;
 
-            // Ensure the input is a number before proceeding
-            if (isNaN(userNumber)) {
+            // Check if the input is empty or not a valid number
+            if (userNumber === "" || isNaN(userNumber)) {
                 document.getElementById("result").innerText = "Please enter a valid number.";
                 return false;
             }
@@ -142,6 +163,30 @@
             // Output the result to the page
             document.getElementById("result").innerText = numType;
         }
+
+
+        /* 
+        Finally (VERY IMPORTANT): 
+        A better coding practice: 
+        *************************
+        When not using "EventListener", it's okay to use the ".onclick" property 
+        to handle events like button clicks
+        */
+        // Attach an event handler to the button with ID "chkNumBtn" for the click event
+        document.getElementById("chkNumBtn").onclick = function () {
+            // same logic:
+            let userNumber = document.getElementById("number").value;
+
+            // Check if the input is empty or not a valid number
+            if (userNumber === "" || isNaN(userNumber)) {
+                document.getElementById("result").innerText = "Please enter a valid number.";
+                return;
+            }
+
+            let numType = (userNumber % 2 == 0) ? "Even number" : "Odd number";
+            // Output the result to the page
+            document.getElementById("result").innerText = numType;
+        };
     </script>
 </body>
 

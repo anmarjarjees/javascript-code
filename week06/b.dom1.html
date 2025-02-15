@@ -5,21 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document Object Model - DOM 1</title>
+    <!-- 
+    For more comprehensive details and full reviewing about HTML,
+    you can check the following repositories of mine:
+    - Basic HTML and CS:
+        > link: https://github.com/anmarjarjees/basic-html-css
+    - HTML/CSS for Full-Stack Software Development:
+        > Link: https://github.com/anmarjarjees/fssd-html
+    - HTML5, CSS3, and JS:
+        > https://github.com/anmarjarjees/HTML5-CSS3-JS
+    -->
     <!-- Internal Styles -->
     <style>
+        div#wrapper {
+            width: 70%;
+            /* centre the div */
+            margin: auto;
+        }
+
+        /* 
+        CSS Review:
+        . class
+        # id
+        */
+
         /* Custom classes to apply themes: blue-theme and red-theme */
         /*
         These classes will be applied dynamically via JavaScript using DOM :-).
         We will use JavaScript to toggle these classes based on user interaction.
         */
         .blue-theme {
-            background-color: #e6f2ff;
+            background-color: #a1caf7;
             border: 2px solid #00264d;
             color: darkblue;
         }
 
         .red-theme {
-            background-color: #ffebe6;
+            background-color: #f7d4cb;
             border: 2px solid #661400;
             color: darkred;
         }
@@ -38,6 +60,7 @@
 </head>
 
 <body>
+    <!-- we need some html content to practice DOM -->
     <div id="wrapper">
         <header class="main">
             <h1 id="head1">Document Object Model - <span>DOM</span></h1>
@@ -96,27 +119,48 @@
             -->
             <!-- Buttons to trigger theme change -->
             <button onclick="changeColor(1)">Blue Theme</button>
-            <button onclick="changeColor(2)">Red Theme</button>>
+            <button onclick="changeColor(2)">Red Theme</button>
+            <!-- 
+                onClick (old-fashioned way) :-( 
+                New ways for later :-) 
+            -->
         </section>
         <footer class="main">
             Designed by me...
         </footer>
     </div>
 
+    <!-- 
+    NOTE:
+    adding <script> element at the end of all html content:
+    1. Faster Page Load: The page content loads first, so users see it faster
+    2. No Blocking: The script doesn't stop other content from loading while it's being fetched
+    3. DOM Ready: The script runs only after all HTML elements are fully loaded, avoiding errors 
+    -->
     <script>
         // Logging the entire document object and the title
-        console.log(document);
-        console.log(document.title);
+        console.log(document); // all the HTML page!
+        console.log(document.title); // page title
 
-        // This event handler listens for a click event on a button
-        document.getElementById("first").onclick = function () {
-            alert("So you clicked the first paragraph!");
-        };
+        /* 
+        .getElementById() method:
+        > DOM method: Is used to access/select an element in the DOM by its unique id attribute (ID value)
+        > Belongs to document: It's called on the document object, which represents the web page
+        Syntax: document.getElementById('elementId');
+        */
+        let element1 = document.getElementById("first").innerText;
+        console.log(element1); // <p id="first">Here is my first paragraph</p>
 
+        /* 
+        Task: change the value/text of h1#head1 to be "Learning about DOM"
+        */
         // Accessing the element with id 'head1' and modifying it
+        // Either:
+        document.getElementById("head1").innerText = "Learning about DOM"
+        // OR:
         let head1Element = document.getElementById("head1");
-        console.log(head1Element);  // Logs the element to the console
         head1Element.innerText = "Learning about DOM!";  // Change the text content
+        console.log(head1Element);  // Logs the element to the console
 
         // Updating content of the 'final' div
         const finalDiv = document.getElementById("final");
@@ -146,12 +190,21 @@
 
         // Function to change the theme of the page based on the selected color
         function changeColor(color) {
+            /* 
+            logic:
+            if red button clicked (color = 1) THEN => apply red theme class to the div.wrapper
+            else THEN => apply blue theme theme class to the div.wrapper
+            */
             const wrapperDiv = document.getElementById("wrapper");
 
             if (color === 1) {
+                // testing
+                // alert("Blue");
                 // Change to blue theme by adding the 'blue-theme' class to the wrapper
                 wrapperDiv.className = "blue-theme";
             } else {
+                // testing:
+                // alert("Red");
                 // Change to red theme by adding the 'red-theme' class to the wrapper
                 wrapperDiv.className = "red-theme";
             }
