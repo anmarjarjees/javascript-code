@@ -135,6 +135,12 @@
             document.write(`<p>I will run immediately, but your number is ${number}!</p>`);
             document.write(`<p>If you check the console window, you will see that I will be called immediately!</p>`);
         })();
+
+        /*
+        NOTE:
+        Arrow functions inherit their 'this' context from the calling context,
+        unlike regular functions.
+        */
     </script>
 </body>
 
