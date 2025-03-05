@@ -198,6 +198,8 @@
             },
         ];
 
+        // Loops with arrays and objects:
+
         // looping through an array:
         // loop to print the object/arrays:
         for (let index = 0; index < courses.length; index++) {
@@ -240,7 +242,38 @@
         It is a function!
         - no name => anonymous function
         - no keyword function => arrow function using arrow function
+        */
 
+        console.log("More Advanced Functions:");
+        // More extra types of loops for arrays (advanced)
+        // using the high order array methods:
+
+        // foreach()
+        // just loop through each item in the array:
+
+        // map()
+        // allows us to create a new array from an array
+
+        // filter()
+        // allows us to create a new array based on a condition
+
+        /*
+        These high order array methods take a "function"
+        as a parameter.
+        
+        We need to pass an anonymous function 
+        it's a callback function as it's passed as a parameter for another function/method
+
+        The syntax:
+        arrayName.forEach(function(x){
+            our code...
+        });
+
+        This callback function can take multiple parameters 
+        - first the parameter that we need to use to represent each item in the array
+        */
+
+        /*
         we are passing a function as an argument to another function/method
         example: 
         The method forEach() accepting a function as an argument
@@ -248,6 +281,11 @@
         The function that we pass as an argument has label: 
         "Callback" function => cb 
         */
+
+        // with the keyword "function"
+        courses.forEach(function (course) {
+            console.log(course.name);
+        });
 
         // arrow function
         courses.forEach((element) => {
@@ -258,6 +296,24 @@
         courses.forEach(element => {
             document.write("<br>" + element.name);
         });
+
+        // map: has the same format/syntax
+        // notice that with "map()" we want to return an array of course names values
+        const courseNameArray = courses.map(function (course) {
+            return course.name;
+        });
+
+        console.log(courseNameArray);
+        // Output....
+
+
+        // filter
+        const onlineClassArray = courses.filter(function (course) {
+            return course.isOnline === true;
+        });
+
+        console.log(onlineClassArray);
+        // output: (2) [{…}, {…}]
 
         document.write("<hr>");
         courses.forEach(element => {
@@ -304,6 +360,22 @@
             let mode = (element.isOnline) ? "Online" : "In-person"
             document.write("<br>Delivery Mode: " + mode);
         }
+
+
+        // More advanced, using method chaining:
+        // method1().method2()...
+        const onlineCourseArray = courses.filter(function (course) {
+            return course.isOnline === true;
+        }).map(function (course) {
+            return course.name;
+        });
+
+        console.log(onlineCourseArray);
+
+        /*
+        For more details:
+        https://github.com/anmarjarjees/fssd-api-all-together/tree/master/Part00-Intro-Initial%20Skills/JS%20Array%20Map%20Method
+        */
     </script>
 </body>
 

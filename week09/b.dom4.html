@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculations</title>
+</head>
+
+<body>
+    <div class="main-content">
+        <!-- Main title of the page -->
+        <h1 id="first">Simple Calculations</h1>
+
+        <!-- User Input Section: Input Field for Numbers -->
+        <div>
+            <label for="numbers">Input your numbers with spaces in between:</label>
+            <!-- 
+                We are using an input field of type "text" for the user to input numbers separated by spaces. 
+                The maxLength attribute limits the number of characters that can be entered. 
+                The user is not required to input a value for the operation to work, 
+                but if the field is empty, we will handle that case in the JS.
+            -->
+            <input type="text" name="numbers" id="numbers" size="30" maxlength="35" placeholder="Example: 1 2 3">
+        </div>
+
+        <!-- User Operation Selection: Radio Buttons for Choose Operation -->
+        <p>Please, select your operation:</p>
+        <!-- 
+            The user can choose one of the following operations:
+            - Multiply numbers
+            - Divide numbers
+            - Count the number of input values
+            We use radio buttons to ensure only one operation is selected at a time.
+        -->
+
+        <input type="radio" name="operation" id="mul" checked value="1">
+        <label for="mul">Multiply Numbers</label>
+        <br>
+
+        <input type="radio" name="operation" id="div" value="2">
+        <label for="div">Divide Numbers</label>
+        <br>
+
+        <input type="radio" name="operation" id="ctn" value="3">
+        <label for="ctn">Count how many numbers</label>
+
+        <!-- Result Display Section -->
+        <p>The total of your numbers: <span id="result"> </span></p>
+        <!-- 
+            This span element with id "result" will be used to display the result of the operation 
+            (Example: multiplication result, division result, or the count of numbers)
+        -->
+    </div>
+
+    <!-- Buttons for the user to trigger the calculation and clear the input -->
+    <div>
+        <!-- 
+            Calculate button: When clicked, it will call the "findResult" function (through addEventListener).
+            We use a <button> here instead of <input type="submit"> to avoid form submission behavior.
+        -->
+        <button id="calculate-btn">Calculate</button>
+
+        <!-- 
+            Reset button: 
+            This button will reset all fields, clearing the numbers input field and radio selections
+        -->
+        <button type="reset">Clear Numbers</button>
+    </div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="js/script4.js"></script>
+
+</body>

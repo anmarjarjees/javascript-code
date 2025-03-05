@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Review</title>
+
+    <style>
+        /* Theme styles for the page */
+        .blue-theme {
+            background-color: #e6f2ff;
+            border: 2px solid #00264d;
+            color: #00008b;
+        }
+
+        .red-theme {
+            background-color: #ffebe6;
+            border: 2px solid #661400;
+            color: #830202;
+        }
+
+        .green-theme {
+            background-color: #d8f6d0;
+            border: 2px solid #015239;
+            color: #08744a;
+        }
+
+        .bw-theme {
+            background-color: #fff;
+            border: 2px solid #000;
+            color: #000;
+        }
+
+        .blue-theme,
+        .red-theme,
+        .green-theme,
+        .bw-theme {
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        /* Button styles for the theme selection */
+        .blue {
+            background-color: rgb(3, 40, 95);
+            color: rgb(205, 218, 247);
+            cursor: pointer;
+        }
+
+        .red {
+            background-color: rgb(80, 2, 2);
+            color: rgb(247, 160, 160);
+            cursor: pointer;
+        }
+
+        .green {
+            background-color: rgb(4, 119, 56);
+            color: rgb(226, 246, 207);
+            cursor: pointer;
+        }
+
+        .bw {
+            background-color: rgb(250, 250, 250);
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+        }
+
+        #do-not {
+            background-color: yellow;
+            color: red;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+        - div is a block-level element
+        - span is an inline element
+
+        Here we are applying the "blue-theme" class (by default) to the div#wrapper element.
+        This sets the initial theme before any button is clicked.
+    -->
+    <div id="wrapper" class="blue-theme">
+        <header class="main">
+            <h1 id="head1">Add Event Listener</h1>
+            <nav>
+                <ul>
+                    <li>Item1</li>
+                    <li>Item2</li>
+                    <li>Item3</li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="content">
+            <p id="first">
+                We are going to use modern JavaScript by employing the "Event Listener".
+                In the previous lessons, we used the "Event Handler" method by adding inline JavaScript to HTML
+                elements.
+                To fully separate HTML and JavaScript, we will use "Event Listener" in this example.
+            </p>
+            <p>You can complete your assignment using either "Event Handler" or "Event Listener".</p>
+            <p>The result is: <span id="result"></span></p>
+            <!-- Task: Display an alert when the paragraph with the text "Don't click me" is clicked -->
+            <p id="do-not">Don't click me</p>
+        </section>
+
+        <div>
+            <button class="blue" id="blueBtn">Blue Theme</button>
+            <button class="red" id="redBtn">Red Theme</button>
+            <button class="green" id="greenBtn">Green Theme</button>
+            <input type="button" class="bw" id="bwBtn" value="B/W Theme">
+        </div>
+        <footer class="main">
+            Designed by me...
+        </footer>
+    </div>
+
+    <!-- Internal JavaScript -->
+    <script>
+        // Function to display an alert message when "Don't click me" is clicked
+        function alertMsg() {
+            alert("So, you clicked this paragraph!!!");
+        }
+
+        // First way to add event: Using the "Event Handler" method within JavaScript (not as an HTML attribute)
+        // Here we assign the function directly to the element's event
+        document.getElementById("do-not").onclick = alertMsg;
+
+        // Another way of coding: using the Event Listener approach
+        // Instead of constantly using document.getElementById(), we store the elements in variables for easier management
+        let blueBtn = document.getElementById("blueBtn");
+        let redBtn = document.getElementById("redBtn");
+        let greenBtn = document.getElementById("greenBtn");
+        let bwBtn = document.getElementById("bwBtn");
+
+        // Assigning event listeners to each button
+        /*
+        JavaScript HTML DOM EventListener
+        Method: addEventListener()
+        addEventListener(argument1, argument2)
+        argument1 = the name of the event, ex: "click", "mouseover", "mouseout", ...
+        argument2 = the function to run/trigger when the event occurs
+
+        Notice that the second argument could be:
+        - The function name without parentheses (this refers to the function itself)
+        - An anonymous function (direct function block)
+
+        Link: https://www.w3schools.com/js/js_htmldom_eventlistener.asp
+        */
+
+        // Function to apply the blue theme
+        function applyBlueTheme() {
+            // Change theme to blue:
+            document.getElementById("wrapper").className = "blue-theme";
+        }
+
+        // Function to apply the red theme
+        function applyRedTheme() {
+            // Change theme to red:
+            document.getElementById("wrapper").className = "red-theme";
+        }
+
+        // Function to apply the green theme
+        function applyGreenTheme() {
+            // Change theme to green:
+            document.getElementById("wrapper").className = "green-theme";
+        }
+
+        /*
+        Syntax for addEventListener:
+        Instead of using document.getElementById("blueBtn").addEventListener("click", applyBlueTheme),
+        we have already assigned the element to a variable (ex: blueBtn), so we simply use that variable.
+
+        Notes:
+        - The second argument (function name) is used without parentheses.
+        - The event is attached directly using addEventListener(), not with "on" prefix like "onclick".
+        */
+        blueBtn.addEventListener("click", applyBlueTheme);
+        redBtn.addEventListener("click", applyRedTheme);
+        greenBtn.addEventListener("click", applyGreenTheme);
+
+        // Using an anonymous function to handle events
+        // An anonymous function is a function that is declared without any named identifier.
+        // It is typically used directly where it is created.
+        // This function can accept the event object as an argument if needed.
+        bwBtn.addEventListener("click", function () {
+            document.getElementById("wrapper").className = "bw-theme"; // Change theme to B/W
+
+            // For testing purposes: Uncomment the next line to log the event object
+            // console.log(e); // Uncomment to see the PointerEvent Object with event details
+        });
+    </script>
+</body>
+
+</html>
