@@ -23,6 +23,9 @@
         <fieldset>
             <legend>Personal Information</legend>
             <div>
+                <!-- 
+                Notice that it's strongly documented to use the full form controls like "label" element
+                -->
                 Full Name:*
                 <!-- 
                 The attribute "name":
@@ -88,12 +91,12 @@
 
     <script>
         // Attach the event listener for the button after the page is fully loaded
-        document.getElementById("submit-btn").addEventListener("click", userInfo);
+        document.getElementById("submit-btn").addEventListener("click", getUserInfo);
 
-        function userInfo() {
+        function getUserInfo() {
             /*
-         Using JS DOM to get the values that the user has put in the form:            
-      */
+             Using JS DOM to get the values that the user has put in the form:            
+            */
 
             // Using our classical way "getElementById()"
             // To review => using getElementById()
