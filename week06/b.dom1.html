@@ -125,6 +125,13 @@
                 New ways for later :-) 
             -->
         </section>
+
+        <section id="more-content">
+            <h2 id="our-headline">JSON</h2>
+            <p id="car"></p>
+            <p id="college"></p>
+        </section>
+
         <footer class="main">
             Designed by me...
         </footer>
@@ -165,6 +172,60 @@
         // Updating content of the 'final' div
         const finalDiv = document.getElementById("final");
         finalDiv.innerHTML = "<p>Here is my final div element</p>"; // Using innerHTML for HTML content
+
+        /*
+        Creating an array of JSON objects below:
+        */
+        var theCars = [
+            {
+                "type": "Honda",
+                "model": 2019,
+                "color": "white"
+            },
+            {
+                "type": "Kia",
+                "model": 2012,
+                "color": "silver"
+            },
+            {
+                "type": "Fiat",
+                "model": 2010,
+                "color": "blue"
+            },
+            {
+                "type": "Volvo",
+                "model": 2012,
+                "color": "red"
+            }
+        ];
+
+        // testing
+        console.log(theCars); // output the entire array of JSON objects
+        console.log(typeof (theCars)); // object
+
+        // We will try access their values
+        // get the type (the car's name) value of the first car
+        // in our array named "theCars" that contains JSON objects:
+        console.log(theCars[0].type) // Honda
+
+        // get the model of the second car
+        console.log(theCars[1].model);
+
+        // Let's try to use DOM JS methods:
+        // output "I have Fiat." => into the p element with id="car"
+        // use our array "theCars" to get the value of "Fiat"
+        // objectName.property OR objectName.method()
+        document.getElementById("car").innerText = "I have " + theCars[2].type;
+
+        /* 
+        output: I have [Fiat] model [2010] and it's color is [white].
+        Notice that the variables are inside [] just for learning not for printing
+        */
+        var fullMsg = "I have " + theCars[1].type + " model " + theCars[1].model + " and it's color is " + theCars[1].color + ".";
+
+        // notice that the following code will override the previous one 
+        document.getElementById("car").innerText = fullMsg;
+
         /* 
         In CSS, properties like background-color, font-weight, etc., are written in camelCase in JavaScript.
         For example:

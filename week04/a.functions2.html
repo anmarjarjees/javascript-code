@@ -36,6 +36,24 @@
         // Or directly:
         console.log(add());
 
+        function study(subjectName = "Python Programming", hours = 8, period = "per week") {
+            console.log(`I will be studying ${subjectName} for ${hours} hours ${period}.`)
+        }
+
+        // Nothing to pass, JS will use the default values
+        study(); // I will be studying Python Programming for 8 hours per week.
+
+        /*
+        We need to be aware about how to order the passing values 
+        Look at the funny examples below :-)
+        */
+        // Passing only one value for the second parameter "hours"!
+        // JS will just use it for the first parameter
+        study(8);
+
+        // Passing two values for the last two parameters, again JS will just place them based on the parameter order
+        study(24, "per month");  // // I will be studying 24 for per month hours per week.
+
         /* 
            ECMAScript 6 => 2015 JavaScript 
         
@@ -84,9 +102,17 @@
         // the function block contains only one statement, so we can ignore the { }
         let sayHello = () => console.log("Hello everyone!");
 
+        let getFactorial = (number) => {
+            // write your logic here :-)
+            let factorial = 1;
+            for (let index = number; index > 0; index--) {
+                factorial *= index;
+            }
+            return factorial;
+        }
 
         // Creating a function for finding the total of numbers in an array:
-        let numTotal1 = function (tempArray) {
+        let getArrayTotal1 = function (tempArray) {
             let total = 0;
             for (let i = 0; i < tempArray.length; i++) {
                 total += tempArray[i];
@@ -95,7 +121,7 @@
         }
 
         // Or:
-        let numTotal2 = (tempArray) => {
+        let getArrayTotal2 = (tempArray) => {
             let total = 0;
             for (let i = 0; i < tempArray.length; i++) {
                 total += tempArray[i];
@@ -104,19 +130,17 @@
         }
 
         // Or:
-        let numTotal3 = tempArray => {
+        let getArrayTotal3 = tempArray => {
             let total = 0;
             for (let i = 0; i < tempArray.length; i++) {
                 total += tempArray[i];
             }
             return total;
         }
-
 
         let myLuckNumbers = [8, 9, 5, 3, 1, 7];
-        document.write(`<p> Total of "${myLuckNumbers}" is: ${numTotal1(myLuckNumbers)}</p>`);
+        document.write(`<p> Total of "${myLuckNumbers}" is: ${getArrayTotal1(myLuckNumbers)}</p>`);
         // Total of "8,9,5,3,1,7" is: 33
-
 
         // Anonymous (no name) Arrow (=>) Function!!!
         // No! The following function code will not work/run:

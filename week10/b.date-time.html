@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date and Time #2</title>
+</head>
+
+<body>
+    <h2>Using Date and Time in JavaScript 2</h2>
+    <script>
+        var userDOBStr = prompt("Enter your date of birth:\n please use this format: YYYY-MM-DD");
+
+        // For testing:
+        console.log(userDOBStr);
+        // To do the date calculations, it should be done individually
+        // getting the user Year
+        // getting the user Month
+        // getting the user Day
+
+        var userYear = userDOBStr.substr(0, 4);
+        // For testing:
+        console.log(userYear);
+
+        var currentDate = new Date();
+
+        var currentYear = currentDate.getFullYear();
+        // For testing:
+        console.log(currentYear);
+
+        var age = currentYear - userYear;
+        // For testing:
+        console.log(age);
+    </script>
+</body>
+
+</html>

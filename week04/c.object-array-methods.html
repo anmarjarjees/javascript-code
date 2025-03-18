@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects & Array Looping</title>
+</head>
+
+<body>
+    <script>
+        // More extra types of loops for arrays (advanced)
+        // using the high order array methods:
+
+        // foreach()
+        // just loop through each item in the array:
+
+        // map()
+        // allows us to create a new array from an array
+
+        // filter()
+        // allows us to create a new array based on a condition
+
+        /*
+        These high order array methods take a "function"
+        as a parameter.
+        
+        We need to pass an anonymous function 
+        it's a callback function as it's passed as a parameter for another function/method
+
+        The syntax:
+        arrayName.forEach(function(x){
+            our code...
+        });
+
+        This callback function can take multiple parameters 
+        - first the parameter that we need to use to represent each item in the array
+        */
+
+        /*
+        we are passing a function as an argument to another function/method
+        example: 
+        The method forEach() accepting a function as an argument
+
+        The function that we pass as an argument has label: 
+        "Callback" function => cb 
+        */
+
+        // Creating an array of objects:
+        let courses = [
+            {
+                section: 205,
+                name: "Java Advanced",
+                semester: 3,
+                day: "Wed",
+                isOnline: false
+            },
+            {
+                section: 206,
+                name: "JavaScript",
+                semester: 3,
+                day: "Fri",
+                isOnline: true
+            },
+            {
+                section: 203,
+                name: "ASP.NET",
+                semester: 3,
+                day: "Wed",
+                isOnline: false
+            },
+            {
+                section: 202,
+                name: "PHP",
+                semester: 2,
+                day: "Mon",
+                isOnline: true
+            },
+        ];
+
+        // with the keyword "function"
+        courses.forEach(function (course) {
+            console.log(course.name);
+        });
+
+        // arrow function
+        courses.forEach((element) => {
+            document.write("<br>" + element.name);
+        });
+
+        // OR without ()
+        courses.forEach(element => {
+            document.write("<br>" + element.name);
+        });
+
+        /*
+        Using .map() method of the array object:
+        
+        arrayName.map(our function)
+        arrayName.map(function(){
+        });
+        */
+        // map: has the same format/syntax
+        // notice that with "map()" we want to return an array of course names values
+        const courseNameArray = courses.map(function (course) {
+            return course.name;
+        });
+
+        console.log(courseNameArray);
+        // Output....
+
+        // Another example of using map:
+        // Task create an array named "doubleNumbers" for doubling each number from an original array:
+        let originalNumbers = [4, 9, 16, 25]; // our original array
+
+        // for doubling each value from the original array
+        let doubleNumbers1 = [];
+        for (let i = 0; i < originalNumbers.length; i++) {
+            // Nested methods:
+            // Using this method of Array object named "push()"
+            // Using this method of Math object named "sqrt()"
+            // (method) Math.sqrt(x: number): number
+            doubleNumbers1.push(originalNumbers[i] * 2);
+            // Or:
+            // doubleNumbers1[i] = originalNumbers[i]*2);
+        }
+
+        // Now using .map() :-)
+        let doubleNumbers2 = originalNumbers.map((number) => {
+            number * 2;
+        });
+
+        // filter
+        const onlineClassArray = courses.filter(function (course) {
+            return course.isOnline === true;
+        });
+
+        console.log(onlineClassArray);
+        // output: (2) [{…}, {…}]
+
+        document.write("<hr>");
+        courses.forEach(element => {
+            document.write("<br><br>Section: " + element.section);
+            document.write("<br>Subject: " + element.name);
+            document.write("<br>" + element.semester);
+            document.write("<br>" + element.day);
+            // Ternary Operator:
+            let mode = (element.isOnline) ? "Online" : "In-person"
+            document.write("<br>Delivery Mode: " + mode);
+        });
+
+
+        // anonymous function
+        courses.forEach(function (course) {
+            document.write("<br>" + course.name);
+        });
+
+        //  Q) What we use to loop through an object in JavaScript?
+        /*
+        For...in Syntax:
+        for (const variable in object) {
+            statement
+        }
+         Syntax Example:
+        for (const property in object) {
+             console.log(`${property}: ${object[property]}`);
+        };
+        */
+
+        // More advanced, using method chaining:
+        // method1().method2()...
+        const onlineCourseArray = courses.filter(function (course) {
+            return course.isOnline === true;
+        }).map(function (course) {
+            return course.name;
+        });
+
+        console.log(onlineCourseArray);
+
+        /*
+        For more details:
+        https://github.com/anmarjarjees/fssd-api-all-together/tree/master/Part00-Intro-Initial%20Skills/JS%20Array%20Map%20Method
+        */
+
+
+        /*
+    .repeat() string method: 
+    constructs and returns a new string which contains 
+    the specified number of copies of the string on which it was called,
+    concatenated together.
+    - Returns a string with a number of copies of a string
+    - Returns a new string
+    - Does not change the original string
+    */
+        let str1 = 'abcd'.repeat(0);
+        console.log("str1: ", str1);  // str1: ''
+
+        let str2 = 'abcd'.repeat(1);
+        console.log("str2: ", str2);  // str2:  abcd
+
+        let str3 = 'Java'.repeat(2);
+        console.log("str3: ", str3); // str3:  
+
+
+        /*
+        As we used includes with strings,
+        We can use it with arrays:
+        
+        myArray.includes()
+        The includes() method determines whether an array includes a certain value among its entries, 
+        returning true or false as appropriate.
+        */
+        let provinces = [
+            "Alberta",
+            "British Columbia",
+            "Manitoba",
+            "New Brunswick",
+            "Newfoundland &amp; Labrador",
+            "Northwest Territories",
+            "Nova Scotia",
+            "Nunavut",
+            "Ontario",
+            "Prince Edward Island",
+            "Quebec",
+            "Saskatchewan",
+            "Yukon Territories"
+        ];
+
+        // Check if the provinces array has "Ontario":
+        console.log(provinces.includes("Ontario")); // true
+
+        console.log(provinces.includes("abc")); // false
+    </script>
+</body>
+
+</html>

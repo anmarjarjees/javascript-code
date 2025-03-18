@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date and Time #1</title>
+</head>
+
+<body>
+    <h2>Using Date and Time in JavaScript 1</h2>
+    <script>
+        /*
+            Don't forget that anything in JS is an object :-)
+            We have the "Date" object:
+            Like any object, Date object has properties and methods()
+            Properties and Methods of the "Date" object:
+            The following methods for retrieving date values from Date object
+            - getDate()
+            - getDay()
+            - getMonth()
+            - getFullYear()
+            
+            Based on what we have learned before:
+            we have the string and array object
+            we can create them using the new keyword:
+            
+            Example:
+            var myArray = new Array() => this will create an empty array
+            var myString = new String() => this will create an empty string
+            We can do/use the same sentence to create a new date object!
+            Read more:
+            - https://www.w3schools.com/js/js_dates.asp
+            - https://www.tutorialrepublic.com/javascript-tutorial/javascript-date-and-time.php
+        */
+
+        // First step is to create a new variable and assign to it a date object
+        /*
+        This will create a new Date object and initialize it to the current date and time
+        based on the client computer's clock:
+        */
+        var currentDate = new Date(); // return the full date and time together!
+
+        // testing:
+        console.log(currentDate); // Thu Aug 12 2021 10:26:14 GMT-0400 (Eastern Daylight Time)
+
+        // Task: getting only the date:
+        // remember that teh variable "currentDate" is a Date object
+        // which means currentDate has all the properties and methods of Date object
+        console.log(currentDate.getDate()); // 12 today is 12th of August (the date of today)
+
+        // The months are 0 based index
+        // First month => "Jan" has the index of 0
+        // Second month => "Feb" has the index of 1
+        // The following code will display the index of the current file
+        // getMonth() => Get the month as a number (0-11)
+        console.log(currentDate.getMonth()); // 7
+
+        /*
+        1 => for Sunday
+        2 => for Monday
+        and so on...
+        */
+        console.log(currentDate.getDay()); // 4 for Thursday
+
+        console.log(currentDate.getFullYear()); // 2021
+
+        // you can check W3schools: https://www.w3schools.com/js/js_date_methods.asp
+
+        /*
+        Besides getting the Date value(s), we can also set these values:
+        The following methods for setting date values of an existing Date object
+                - setDate()
+                - setMonth()
+                - setFullYear()
+        */
+
+        // setting the year of currentDate Data object variable to be "2024"
+        currentDate.setFullYear(2024);
+        console.log(currentDate.getFullYear());
+
+        /*
+        Two tasks of this Chapter:
+        -------------------------
+        - To set/convert time to the user's time zone whether EST or PST based on the user's country or city
+        - How to create a timer in a webpage
+        */
+
+        /*
+        World Time:
+        The concept of now means the same point in time everywhere in the world.
+        This can be done using Coordinated Universal Time (UTC),
+        which is an international basis of civil and scientific time and was implemented in 1964.
+        It was previously known as GMT (Greenwich Mean Time) so 0:00 UTC is also a midnight in Greenwich, London.
+        JavaScript supports UTC with these methods:
+        - toUTCString() and toLocalString()
+        Both methods are used to return the date and time stored in the Date object as a "string"
+        based on either:
+        - UTC Format => toUTCString()
+        - or Local Time Format => toLocalString()
+        */
+
+        // First step is create a new variable and assign to it a date object:
+        // let's name it "localTime"
+        /*
+        This will create a new Date object and initialize it to the current date and time
+        based on the client computer's clock (as we saw in the first example):
+        */
+        var localTime = new Date();
+        /*
+        Note: Date object stores the number of milliseconds
+        between the date and time on your computer's clock
+        and midnight UTC on January 1, 1970)
+        */
+
+        // Store the string returned by the toUTCString() method in the "html" variable:
+        var html = "<p>The current time is: " + localTime + "</p>";
+        document.write(html);
+        // Output: The current time is: Thu Aug 12 2021 11:11:18 GMT-0400 (Eastern Daylight Time)
+
+        // don't forget that we can use the + for concatenating strings:
+        // Below we are NOT overriding the content/value of "html" variable:
+        html += "<p>Here is my next text just for testing!</p>";
+        // document.write(html);
+
+        html += "<p style='color: blue'>UTC Time using toUTCString() method is " + localTime.toUTCString() + "</p>";
+        document.write(html);
+        // Output: UTC Time using toUTCString() method is Thu, 12 Aug 2021 15:18:23 GMT
+        // While our local time (my pc) is 11:13!
+
+        html += "<p style='color: red'>Local Time using toLocalString is " + localTime.toLocaleString() + "</p>";
+        // Output: Local Time using toLocalString is 8/12/2021, 11:18:23 AM
+        // document.write(html);
+
+        /*
+        To find the difference in minutes between the current local's time and UTC,
+        we use getTimezoneOffset() method:
+        - If time zone is behind UTC (like in United State) ==> return a positive number
+        - If time zone is ahead of UTC (like in Australia) ==> return a negative number
+        */
+        var minOffset = localTime.getTimezoneOffset();
+        html += "<p>Time Zone Offset (using .getTimezoneOffset() method) will give us the total difference in minutes which is " + minOffset + " minutes</p>";
+        // document.write(html);
+        // Output: Time Zone Offset (using .getTimezoneOffset() method) will give us the total minutes which is 240 minutes
+
+        // Since each hour has 60 minutes => We can divide the number in minutes by 60
+        // 240 [which is 4 hours] => let's do it:
+
+
+        // var hrOffset = minOffset / 60;
+        // OR:
+        var hrOffset = localTime.getTimezoneOffset() / 60;
+
+        html += "<p>Time Zone Offset (using .getTimezoneOffset() method will give us the total in (minutes) then we divide teh result by 60 and it will be: " + hrOffset + " hour(s)</p>";
+
+
+        // store the time part of the date and time held in the Date object based on the user's computer
+        html += "<p>Using toLocalTimeString() method gives: " + localTime.toLocaleTimeString() + "</p>"; // 11:29:10 AM
+
+
+        // store the time part of the date and time held in the Date object based on the user's computer  plus giving an indication of the time zone
+        html += "<p>Using toTimeString() method gives: " + localTime.toTimeString() + "</p>";
+        // Using toTimeString() method gives: 11:30:56 GMT-0400 (Eastern Daylight Time)
+
+        // store the current date in the format the user has specified on his computer:
+        html += "<p>Using toLocaleDateString() method ives: " + localTime.toLocaleDateString() + "</p>";
+        // Using toLocaleDateString() method ives: 8/12/2021
+
+        // store the current date content in the PC date in a standard format:
+        html += "<p>Using toDateString() method gives: " + localTime.toDateString() + "</p>";
+        // Using toDateString() method gives: Thu Aug 12 2021
+
+        // display them all:
+        document.write(html);
+    </script>
+</body>
+
+</html>
