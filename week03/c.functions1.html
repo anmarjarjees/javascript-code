@@ -176,12 +176,47 @@
 
         document.write("<p> the average of " + exam1 + " and " + exam2 + " is: " + examAvg + "</p>");
 
+        // Another way for declaring for using a function block:
+        // By assigning the function to a variable:
+        let getAverage = function (num1, num2) {
+            return (num1 + num2) / 2;
+        }
+        document.write("<p> the average of " + exam1 + " and " + exam2 + " is: " + getAverage(num1, num2) + "</p>");
+
+
         /*
         To summarize:
         The "return" statement within a function will:
         - stop the function execution 
         - return a value
         */
+
+        /*
+        NOTE TO RECALL: Using "var"        
+        */
+        function doForLoop() {
+            for (var i = 0; i <= 10; i++) {
+                console.log(i);
+
+            }
+            console.log(i); // works! // 11
+            /*
+            so i accessible inside the entire function in which it's defined
+            which is not good
+            */
+
+            for (let j = 0; j <= 10; j++) {
+                console.log(i);
+            }
+            // console.log(j); 
+            /*
+            in conclusion:
+            > "var" has a function scope
+            > "let" has a block scope
+            */
+        } // end
+
+        doForLoop();
     </script>
 </body>
 

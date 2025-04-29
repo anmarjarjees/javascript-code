@@ -11,17 +11,33 @@
 <body>
     <script>
         /*
-        Object Literals: 
-        - a way to define an object using a simple and concise syntax
-        - are written inside curly braces { }
-        - using key-value pairs separated by commas:
+         Object as an instance of class:
+         *******************************
+         - Properties or Attributes => variables declared inside class
+         - Methods => functions inside a class
+         
+             OOP => A PIE  
+         
+         Object Literals:
+         ****************
+         - a way to define an object using a simple and concise syntax
+         - a list of zero or more pairs of property names
+         - each property is associated with its value
+         
+         - Using key-value pairs separated by commas:
             > "key" is a string (or identifier), 
             > "value" can be any valid JavaScript data type
-        
-        Basically => Key-Value Pairs: 
-        - Each key is followed by a colon : 
-        - and its corresponding value
-        */
+                
+         - Basically => Key-Value Pairs: 
+            > Each key is followed by a colon : 
+            > and its corresponding value
+         - the "property: value" paris of an object are enclosed in curly braces { }
+         - object properties are written inside curly braces { } separated by commas
+ 
+         Any object (class) in any OOP can have two members:
+             > Properties: variables inside object
+             > Methods: functions inside object
+         */
 
         /* 
         In JavaScript, we can create an object without a class
@@ -42,7 +58,7 @@
         - [ ] => for arrays => arrays of object
         */
 
-        // Look at the two basic objects below:
+        // Look at the two basic objects below (Simple Properties):
         const bio = {
             name: "Alex Chow",
             dob: "1974-07-12",
@@ -55,7 +71,58 @@
             address: "123 Yonge St. Toronto-Ontario Q1W2E3"
         };
 
-        // More Advanced Example:
+        // Creating an object in JS (Simple Properties and Methods):
+        const car = {
+            // Object Properties:
+            brand: 'Toyota',
+            year: 2020,
+            model: 'SXT',
+
+            // Object Methods: Function inside an object/class are called "Method"
+            drive: function () {
+                console.log("Drive Froward!");
+            }
+        } // car
+
+        // Other Example
+        const student = {
+            fullName: 'Alex Chow',
+            program: 'CMPG',
+
+            // function inside an object is called a method:
+            // In JS (ES5) define a method:
+            read: function () {
+                console.log("Reading JS framework");
+            },
+
+            // In (ES6) define a method:
+            write() {
+                console.log("Writing the assignment");
+            }
+        } // student
+
+        /*
+        in ES5 (Before ES6): using the normal way of DOT notation to access the object's members:
+        */
+        student.read();
+        student.fullName = "Martin Smith";
+
+        /*
+        Since ES6: we can also use the bracket notation with properties:
+        */
+        student['fullName'] = "Sam Simpson";
+
+
+        /*
+        Tip:
+        bracket notation can be used if we don't know the property that we need to access:
+        the property name could a value that we receive from an input form:
+        */
+        const property = 'fullName';
+        student[property] = 'Kate Wilson';
+        console.log(student);
+
+        // More Advanced Example (using the keyword "this"):
         let person = {
             // Keys => properties (fields)
             firstName: "Alex",
@@ -196,8 +263,120 @@
             },
         ];
 
-        // Loops with arrays and objects:
 
+        /*
+   The keyword "this" in C#/Java
+   always returns a reference to this class object 
+   which is a reference to the current object
+
+   But this is not always the case in JS
+   */
+        const student = {
+            fullName: 'Alex Chow',
+            program: 'CMPG',
+
+            write() {
+                console.log(this);
+            }
+        }
+
+        student.write();
+        /*
+        Object
+            fullName: "Alex Chow"
+            program: "CMPG"
+            write : 
+            ƒ write()
+        */
+
+        // check "write1" and "write2"
+        /*
+        This line will also print the object "student" as are calling the write() method;
+        */
+        const write1 = student.write();
+
+        console.log("WRITE1:");
+        console.log(write1); // undefined;
+        /*
+        so console.log the keyword "this" => undefined
+        */
+
+        /*
+        This line will NOT call the write() method,
+        will just get a reference to the method "write" of the object student
+        */
+        const write2 = student.write;
+
+        // Test:
+        console.log("WRITE2:");
+        console.log(write2);
+        /*
+        Output (copied from console window):
+        ƒ write() {
+                console.log(this);
+        }
+        
+        so our constant "write2" was set to the method (object's function): write()
+        */
+
+
+        /*
+        Now let's try to call the write2() as a function:
+        */
+        write2();
+        /*
+        Output:
+        Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+        
+        In such case the value of "this" keyword refer to the "Window" object
+        */
+
+        /*
+        As a conclusion:
+        The value of this is determined by the way we call our function:
+         
+        way#1: 
+        > calling the function as a method for an object 
+        => returns a reference to the object itself
+         
+        way#2:
+        > calling the function as a standalone object (not attached to an object) 
+        => returns the global object which is the "Window" object of the browser
+        NOTE: if the strict mode is NOT enabled, otherwise returns "undefined"
+        */
+
+
+
+
+        /*
+        In JavaScript, function can act as object
+        Sp to make the keyword "this" always returns a reference to the object itself,
+        we can use another method "bind":
+         
+        VScode: 
+        > For a given function, creates a bound function that has the same body as the original function.
+        > (method) Function.bind(this: Function, thisArg: any, ...argArray: any[]): any
+        so whatever we pass to bind() will determine the value of "this" keyword:
+        bind() method will return a new instance that points to "student" object
+        */
+        const write3 = student.write.bind(student);
+
+        console.log("WRITE3:");
+        console.log(write3);
+
+        write3();
+        /*
+        output: {fullName: 'Alex Chow', program: 'CMPG', write: ƒ}
+        */
+
+        /*
+        so functions in JS can be treated as objects that can have properties and methods
+        */
+
+
+        // ******************************
+        // Loops with arrays and objects:
+        // ******************************
         // looping through an array:
         // loop to print the object/arrays:
         for (let index = 0; index < courses.length; index++) {

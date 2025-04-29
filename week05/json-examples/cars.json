@@ -1,19 +1,22 @@
 [
     {
-        "type": "Honda",
+        "brand": "Honda",
         "model": 2010,
+        "type": "SUV",
         "color": "white",
         "isUsed": true
     },
     {
-        "type": "Nissan",
+        "brand": "Nissan",
         "model": 2012,
+        "type": "SUV",
         "color": "blue",
         "isUsed": true
     },
     {
-        "type": "Toyota",
+        "brand": "Toyota",
         "model": 2025,
+        "type": "Sedan",
         "color": "white",
         "isUsed": false
     }

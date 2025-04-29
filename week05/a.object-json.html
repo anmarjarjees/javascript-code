@@ -49,11 +49,22 @@
             document.write(`<br>${letter}`);
         }
 
-        // JSON => JavaScript Object "Notation" ???
+        // JSON => JavaScript Object "Notation"
         // Below converting JS Object above to a valid JSON Object
         // JSON Object Syntax:
-        // we are saving the JSON into a new variable named "myCarJSON"
-        // Notice that JSON cannot have functions
+        // JSON - "JavaScript Object Notation" Format:
+        let jsonExample = {
+            "brand": "Toyota",
+            "year": 2020,
+            "model": "SXT"
+        }
+        /* 
+        IMPORTANT NOTE:
+        Notice that JSON Object Format cannot have functions,
+        This rule will be strictly applied when we have a dedicated JSON file
+        */
+
+        // Below, we are saving the JSON into a new variable named "myCarJSON"
         let myCarJSON = {
             "type": "Honda",
             "model": 2010,
@@ -106,7 +117,12 @@
         console.log(theCars); // output the entire array of JSON objects
         console.log(typeof (theCars)); // object
 
-        // Check the file "cars.json"
+        /*
+        Creating a JSON file, for example:
+        - Only one JSON object => car.json
+        - A list of multiple JSON objects => cars.json
+        -  A list of multiple JSON objects => students.json
+        */
     </script>
 </body>
 

@@ -29,11 +29,16 @@
         Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Array_methods
        */
 
+        // Arrays:
         // declare a new array and initialize it with 5 numeric values:
         let numbers = new Array(1, 2, 3, 4, 5);
         console.log(numbers);
 
         // Or like PHP => $numbers = [200,300,400,500];
+        // using const:
+        const newsChannels = ["cp24", "CTV news", "CityTV", "Fox29"];
+        const sportsChannels = ["TSN", "SNE", "SNW", "SNP"];
+        // using let:
         let fruits = ['apples', 'oranges', 'pears', 'bananas', 'cherries'];
         /* 
         Arrays are O Based Index:
@@ -62,7 +67,6 @@
         console.log(fruits);
 
         // not good to use [3] as we might override a value!
-
 
         // The sound of music :-)
         let musicNotes = ["Do", "Re", "Mi", "Fa", "Sol", "la"]; // missing final note
@@ -137,6 +141,36 @@
 
         // Template Literal:
         console.log(`we are learning ${myFavSubjects[2]}`);
+
+        // ES6: Spread Operator:
+        // Task: create another new array named "allNews"
+        // contains the elements of "newsChannels" array
+        // plus adding these two values: "CNN" and "Global News"
+        let allNews = ["CNN", "Global News", ...newsChannels];
+        console.log(allNews);
+
+        // Another Example:
+        let rgb = ['red', 'green', 'blue'];
+        let cmyk = ['cyan', 'magenta', 'yellow', 'black'];
+
+        // red, green, blue, cyan, magenta, etc...
+        const mergeColors = [...rgb, ...cmyk];
+        console.log(mergeColors); // [ 'red', 'green', 'blue', 'cyan', 'magenta', 'yellow', 'black' ]
+
+        // take the first two channels and save them into variables:
+        // newsChannels = ["cp24", "CTV news", "CityTV", "Fox29"];
+        const channel1 = newsChannels[0];
+        const channel2 = newsChannels[1];
+
+        // getting the first 3 colors of mergeColors:
+        // and save them into 3 variables:
+        let color1 = mergeColors[0];
+        let color2 = mergeColors[1];
+        let color3 = mergeColors[2];
+
+        // ES6: Destructing Assignment:
+        let [c1, c2, c3] = mergeColors;
+        console.log(`Color1: ${c1} - Color2: ${c2} - Color3: ${c3}`);
     </script>
 </body>
 

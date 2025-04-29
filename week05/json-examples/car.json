@@ -1,6 +1,7 @@
 {
-    "type": "Honda",
-    "model": 2010,
+    "brand": "Toyota",
+    "year": 2012,
+    "type": "SUV",
     "color": "white",
     "isUsed": true,
     "owner_name": "Alex Chow",

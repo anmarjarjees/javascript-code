@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>concatenation</title>
 </head>
 
 <body>
@@ -21,6 +21,11 @@
 
         let firstName = "Alex";
         let lastName = "Chow";
+
+        let college = "ABC Learning Gate";
+
+        // Js classical way => Using the + sign:
+        console.log("My college is " + college);
 
         // concatenation:
         // below we are using the + symbol not as addition math operation
@@ -41,13 +46,21 @@
         // JS: number + number => JS will add (the math operation +) them
         console.log(num1 + num2); // 100200
 
+        // ES6: Template literals (Template strings)
         // Another modern way to use something called "Template Literal" or "Template String"
-        // "Template Literal" ES6 (ECMAScript 6) or (JavaScript 2015)        
+        // "Template Literal" ES6 (ECMAScript 6) or (JavaScript 2015) 
+        /*
+        Template literals are literals delimited with backtick (`) characters,
+        allowing for multi-line strings, string interpolation 
+        with embedded expressions, and special constructs called tagged templates.
+        Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+        */
         /*
         We can inject the values using the ${TextGoesHere} into "Template Literals" Syntax
         
         NOTE: With this way => we cannot use ' or " => only backtick `
         */
+        console.log(`My college is ${college}`);
         console.log(`First Name is ${name} - Age: ${age}`);
         // we can ignore the ' or " and just warp our entire text with ` first
         // wrap every variable with { } with the symbol of $ => ${variableName}

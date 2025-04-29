@@ -54,20 +54,23 @@
         // Passing two values for the last two parameters, again JS will just place them based on the parameter order
         study(24, "per month");  // // I will be studying 24 for per month hours per week.
 
+        // ES6: Arrow Functions:
+        // JavaScript 2015 => ECMAScript (ES 6)
         /* 
-           ECMAScript 6 => 2015 JavaScript 
-        
-           remove "function" and add "=>"
+        An arrow function expression is a compact alternative to a traditional function expression,
+        but is limited and can't be used in all situations.
+
+        using the "=>"   
+        remove "function" and add "=>"
            
-           Arrow function =>
-           An arrow function expression is a compact alternative to a traditional function expression,
-           but is limited and can't be used in all situations.
-         
-           using the "=>"
+        Arrow function =>
+        An arrow function expression is a compact alternative to a traditional function expression,
+        but is limited and can't be used in all situations.
         */
 
         // Task: Create a function to accept any number then output even or odd message based on the number
         // By assigning the function to a variable:
+        // Arrow Function with () and parameters:
         let testEvenOddTry1 = function (number) {
             if (number % 2 == 0) {
                 document.write(`<p>Your number is ${number}, and it is even.</p>`);
@@ -80,26 +83,39 @@
 
         // By using arrow function:
         // The new way of ES6 (2015):
-        // Notice that are ( ) optional with arrow function if it has ONLY one parameter:
         // let testEvenOddTry2 = (number) => {
-        let testEvenOddTry2 = number => {
+        let testEvenOddTry2 = (number) => {
             if (number % 2 == 0) {
                 document.write(`<p>Your number is ${number}, and it is even.</p>`);
             } else {
                 document.write(`<p>Your number is ${number}, and it is odd.</p>`);
             }
         }
-
         testEvenOddTry2(100);
         testEvenOddTry2(175);
         testEvenOddTry2(135);
 
-        // more examples:
+        // Arrow Function with one parameter: no need for ()
+        // Notice that are ( ) optional with arrow function if it has ONLY one parameter:
+        let testEvenOddTry3 = number => {
+            if (number % 2 == 0) {
+                document.write(`<p>Your number is ${number}, and it is even.</p>`);
+            } else {
+                document.write(`<p>Your number is ${number}, and it is odd.</p>`);
+            }
+        }
+        testEvenOddTry3(175);
+
+        let doubleTheValue = value => {
+            return value * 2;
+        }
+
+        // More Examples:
         let sayHi = () => {
             console.log("Hi everyone!");
         }
 
-        // the function block contains only one statement, so we can ignore the { }
+        // The function block contains only one statement, so we can ignore the { }
         let sayHello = () => console.log("Hello everyone!");
 
         let getFactorial = (number) => {
@@ -111,6 +127,23 @@
             return factorial;
         }
 
+        /*
+        IMPORTANT NOTE:
+        ***************
+        If the function body:
+        > has one line
+        > return keyword
+        
+        we can summarize it by:
+        > remove the { }
+        > remove the "return" keyword
+        */
+
+        // Using the "Ternary" operator:
+        const isOddOrEven = x => x % 2 == 0 ? "Even" : "Odd";
+        console.log(isOddOrEven);
+
+        // More Examples
         // Creating a function for finding the total of numbers in an array:
         let getArrayTotal1 = function (tempArray) {
             let total = 0;
@@ -164,7 +197,23 @@
         NOTE:
         Arrow functions inherit their 'this' context from the calling context,
         unlike regular functions.
+    
+        Arrow Functions don't rebind "this" to the object itself
         */
+
+        const teacher = {
+            teach() {
+                console.log("the value of keyword this", this); // object
+            }
+        }
+
+        teacher.teach();
+
+        const instructor = {
+            teach: () => console.log("the value of keyword this", this) // window
+        }
+
+        instructor.teach();
     </script>
 </body>
 
