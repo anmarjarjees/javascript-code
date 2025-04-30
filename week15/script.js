@@ -281,4 +281,4 @@ getData(url).then(data => {
     ulElement += "</ul>"; // Close the unordered list
     // Insert the list into the HTML:
     document.getElementById("instruments").innerHTML = ulElement;
-}); 
+});
