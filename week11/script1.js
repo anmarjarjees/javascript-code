@@ -89,10 +89,12 @@ we're indicating that we're working on something and will notify when it's done.
 */
 
 /* 
+Optional Review:
+****************
 Let's explore how JavaScript handled asynchronous operations before Promises.
 
-To Review "Callback":
-*********************
+To Review "Callback" (Optional):
+********************************
 A "callback" in JavaScript:
 > is a function passed as an argument to another function
 > this function is executed after the completion of a task, allowing for asynchronous operations
@@ -150,6 +152,7 @@ For more information about promises, check out these resources:
 - Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
 - Link: https://www.w3schools.com/js/js_promise.asp
 */
+
 
 /* 
 Promises: Promise Class
@@ -217,15 +220,18 @@ Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_O
 
 // STEP#1: Creating the Promise object:
 // pass an anonymous arrow function => Executer Function
+// Executer Function takes two arguments:
+// 1) for resolved promise => pizz is read => :-)
+// 2) for rejected promise => pizz is not ready => :-(
 let pizzaOrder = new Promise((resolve, reject) => {
     // action/task to be done => preparing the pizza
-    let pizzaReady = true; // Checks if the pizza is ready
-    if (pizzaReady) {
+    let isPizzaReady = true; // Checks if the pizza is ready
+    if (isPizzaReady) { // this promise has been resolved:
         // Resolve the promise with the message "Pizza is ready!"
         // Resolve the promise => using our resolve() function
         // We can pass anything to promise()
         resolve("Pizza is ready!");
-    } else {
+    } else { // this promise has been rejected:
         // Reject the promise with the message "Pizza is not ready yet."
         // (parameter) reject: (reason?: any) => void
         // We can pass anything to reject()
@@ -245,6 +251,49 @@ Promise Code Explanation:
 */
 
 // STEP#2: Calling the promise object with its methods [then().catch().finally()]
+
+/* 
+Chaining the methods:
+*********************
+We can use .then().catch() chaining methods:
+> .then() method handles the fulfilled promise
+> .catch() method handles the rejected promise
+*/
+pizzaOrder
+    .then((msg) => { // will handle promise when it's resolved
+        console.log(msg); // Your pizza is ready!
+    })
+    .catch((err) => {
+        / /// will handle promise when it's rejected
+        console.log(err); // Sorry, Not ready!
+    })
+    .finally(() => {
+        console.log("Final Class!")
+    });
+
+// pizzaOrder.then( (resolvedMsgArg)=>{} ).catch( (rejectedMsgArg)=>{});
+pizzaOrder.then(message => {
+    console.log(message); // Runs if the pizza was ready
+}).catch(error => {
+    console.log(error); // Runs if there was an issue with the pizza
+});
+/* 
+Promise Result Code Explanation:
+- method .then()
+    > Used to handle the successful outcome of a promise
+    > When the promise is resolved, the function provided to .then() is executed
+    > Syntax: .then(onFulfilled)
+    onFulfilled is a callback function that receives the promise result 
+    (value passed to resolve)
+
+- method .catch()
+    > Used to handle the case where a promise is rejected
+    > When the promise is rejected, the function provided to .catch() is executed
+    > Syntax: .catch(onRejected)
+    onRejected is a callback function that receives the reason for the rejection 
+    (value passed to reject)
+*/
+
 /*
  A Promise object serves as a link between the executor "new Promise((resolve, reject) => { }"
  and the consuming functions, which will receive the result or error. 
@@ -269,37 +318,6 @@ Promise Code Explanation:
          // handle an error 
      }
  );
- */
-
-/* 
-Chaining the methods:
-*********************
-We can use .then().catch() chaining methods:
-> .then() method handles the fulfilled promise
-> .catch() method handles the rejected promise
-*/
-
-// pizzaOrder.then( (resolvedMsgArg)=>{} ).catch( (rejectedMsgArg)=>{});
-pizzaOrder.then(message => {
-    console.log(message); // Runs if the pizza was ready
-}).catch(error => {
-    console.log(error); // Runs if there was an issue with the pizza
-});
-/* 
-Promise Result Code Explanation:
-- method .then()
-    > Used to handle the successful outcome of a promise
-    > When the promise is resolved, the function provided to .then() is executed
-    > Syntax: .then(onFulfilled)
-    onFulfilled is a callback function that receives the promise result 
-    (value passed to resolve)
-
-- method .catch()
-    > Used to handle the case where a promise is rejected
-    > When the promise is rejected, the function provided to .catch() is executed
-    > Syntax: .catch(onRejected)
-    onRejected is a callback function that receives the reason for the rejection 
-    (value passed to reject)
 */
 
 /*
@@ -444,8 +462,8 @@ Functions can return a promise!
 function makePizza() {
     return new Promise((resolve, reject) => {
         // action/task to be done => preparing the pizza
-        let pizzaReady = false;
-        if (pizzaReady) {
+        let isPizzaReady = false;
+        if (isPizzaReady) {
             resolve("My pizza is ready :-)");
         } else {
             reject("Pizza is not ready yet.");
